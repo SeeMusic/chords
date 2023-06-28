@@ -1,0 +1,42 @@
+@use "../../../styles/base.scss";
+
+.page__hd {
+  margin-bottom: 16px;
+  padding: 12px 0;
+  height: 24px;
+  line-height: 24px;
+  color: var(--seemusic-text-normal);
+  box-shadow: inset 0 -1px 0 0 #DDD;
+
+  a {
+    float: left;
+  }
+
+  .slice {
+    float: left;
+    margin: 0 6px;
+    color: var(--seemusic-text-description);
+  }
+
+  .sop-icon {
+    float: left;
+    margin-left: -10px;
+    margin-right: -4px; // 间隙调整
+    margin-top: -1px; // 纵向对齐调整
+    font-size: 24px;
+    transform: rotate(90deg);
+  }
+
+  .page-path,
+  .page-title {
+    float: left;
+  }
+
+  .page-title {
+    font-weight: 600;
+  }
+
+  .page-opt {
+    float: right;
+  }
+}

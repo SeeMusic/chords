@@ -1,0 +1,69 @@
+@use "../../../styles/base.scss";
+
+.sop-status {
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.sop-status__text {
+  margin-left: 4px;
+  font-size: var(--sop-font-size);
+  font-style: normal;
+  vertical-align: middle;
+}
+
+[class*="sop-status__icon"] {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.sop-status__icon{
+  &--all {
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 50%;
+    }
+
+    &:before {
+      left: 0;
+      background-color: var(--seemusic-primary);
+      box-shadow: 0 4px 0 0 var(--seemusic-danger);
+    }
+
+    &:after {
+      right: 0;
+      background-color: var(--seemusic-success);
+      box-shadow: 0 4px 0 0 var(--seemusic-warning);
+    }
+
+    overflow: hidden;
+  }
+
+  &--info {
+    background-color: var(--seemusic-info);
+  }
+
+  &--success {
+    background-color: var(--seemusic-success);
+  }
+
+  &--warning {
+    background-color: var(--seemusic-warning);
+  }
+
+  &--danger {
+    background-color: var(--seemusic-danger);
+  }
+
+  &--primary {
+    background-color: var(--seemusic-primary);
+  }
+}

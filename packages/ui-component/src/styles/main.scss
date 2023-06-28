@@ -1,0 +1,11 @@
+@use "./iconfont.scss";
+
+.sop-data-table,
+.el-form-item {
+  .el-select,
+  .el-cascader {
+    width: 100%;
+  }
+}
+
+

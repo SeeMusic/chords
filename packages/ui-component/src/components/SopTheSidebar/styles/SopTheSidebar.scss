@@ -1,0 +1,112 @@
+
+.the-sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  padding-top: 16px;
+  box-sizing: border-box;
+  background: #FFF;
+  width: 256px;
+  height: 100%;
+
+  .icon-ipo {
+    font-size: 16px;
+  }
+
+  a {
+    color: #333;
+  }
+
+  & > ul {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #383E4B;
+      box-shadow: inset 0 0 1px rgba(0, 0, 0, .7);
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #22262e;
+    }
+
+    h2 {
+      box-sizing: border-box;
+      position: relative;
+      padding: 9px 24px;
+      display: flex;
+      align-items: center;
+      color: #333;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .sd-aside__nav-group-icon {
+      padding-right: 12px;
+    }
+
+    .sd-aside__nav-group-title {
+      font-size: 14px;
+      color: rgba(0,0,0,0.65);
+      line-height: 22px;
+    }
+
+    .sd-icon-arrow-down {
+      position: absolute;
+      right: 16px;
+      width: 16px;
+      height: 16px;
+      transform: rotate(-90deg);
+      transition: transform .3s;
+    }
+
+    & > li {
+
+      &.closed {
+        .sd-icon-arrow-down {
+          transform: rotate(0deg);
+        }
+
+        ul {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .router-link-exact-active {
+    background: rgba(0, 64, 255, .08);
+    color: var(--kanjian-blue);
+    border-right: 2px solid #1890FF;
+  }
+
+  li li {
+    a {
+      display: block;
+      line-height: 22px;
+      padding: 9px 0 9px 52px;
+      font-size: 14px;
+    }
+
+    &:hover {
+      a {
+        background: rgba(0, 64, 255, .08);
+        color: var(--seemusic-primary);
+      }
+    }
+  }
+}

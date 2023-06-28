@@ -1,0 +1,60 @@
+@use "../../../styles/base.scss";
+
+.sop-basic-info {
+  position: relative;
+  margin-bottom: 16px;
+  min-height: 72px;
+}
+
+.sop-basic-info__cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sop-basic-info__title {
+  line-height: 36px;
+  font-size: 24px;
+}
+
+.sop-basic-info__opt {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sop-meta-info {
+  display: flex;
+  color: var(--seemusic-text-description);
+
+  & > span {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+
+    &:before {
+      content: "";
+      margin-right: 8px;
+      width: 2px;
+      height: 2px;
+      border-radius: 2px;
+      background: #999;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .sop-icon-status + em {
+    font-style: normal;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,116 @@
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'sop-icon';  /* Project id 2086495 */
+  src: url('//at.alicdn.com/t/c/font_2086495_xwd772h50xh.woff2?t=1660816942163') format('woff2'),
+       url('//at.alicdn.com/t/c/font_2086495_xwd772h50xh.woff?t=1660816942163') format('woff'),
+       url('//at.alicdn.com/t/c/font_2086495_xwd772h50xh.ttf?t=1660816942163') format('truetype');
+}
+
+.sop-icon {
+  font-family: "sop-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sop-icon--income:before {
+  content: "\e640";
+}
+
+.sop-icon--ftp:before {
+  content: "\e63b";
+}
+
+.sop-icon--music-task:before {
+  content: "\e61a";
+}
+
+.sop-icon--client-admin:before {
+  content: "\e619";
+}
+
+.sop-icon--data:before {
+  content: "\e618";
+}
+
+.sop-icon--project:before {
+  content: "\e613";
+}
+
+.sop-icon--drag:before {
+  content: "\e612";
+}
+
+.sop-icon--play-circle:before {
+  content: "\e611";
+}
+
+.sop-icon--pause-circle:before {
+  content: "\e610";
+}
+
+.sop-icon--warning-circle:before {
+  content: "\e60f";
+}
+
+.sop-icon--success-circle:before {
+  content: "\e60e";
+}
+
+.sop-icon--failed-circle:before {
+  content: "\e60d";
+}
+
+.sop-icon--refresh:before {
+  content: "\e60c";
+}
+
+.sop-icon--download:before {
+  content: "\e60b";
+}
+
+.sop-icon--tag-close:before {
+  content: "\e60a";
+}
+
+.sop-icon--play:before {
+  content: "\e609";
+}
+
+.sop-icon--arrow-down:before {
+  content: "\e608";
+}
+
+.sop-icon--message:before {
+  content: "\e607";
+}
+
+.sop-icon--cd:before {
+  content: "\e606";
+}
+
+.sop-icon--info:before {
+  content: "\e605";
+}
+
+.sop-icon--input:before {
+  content: "\e603";
+}
+
+.sop-icon--search:before {
+  content: "\e604";
+}
+
+.sop-icon--profile:before {
+  content: "\e602";
+}
+
+.sop-icon--add-circle:before {
+  content: "\e601";
+}
+
+.sop-icon--dashboard:before {
+  content: "\e600";
+}
+

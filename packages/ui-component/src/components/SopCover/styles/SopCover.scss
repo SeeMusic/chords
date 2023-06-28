@@ -1,0 +1,30 @@
+@use "../../../styles/base.scss";
+
+.sop-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  color: var(--seemusic-text-disabled);
+  box-shadow: inset 0 0 0 1px #EEE;
+  background-color: #FAFAFA;
+
+  .edit {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transition: all ease .3s;
+    i {
+      cursor: pointer;
+    }
+  }
+
+  .default-cover {
+    flex: 1;
+    background-repeat: no-repeat;
+    background-image: url(../../../../assets/cover-placeholder.jpg);
+  }
+}
