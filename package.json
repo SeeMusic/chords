@@ -28,8 +28,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {
-    "element-plus": "2.3.7"
   }
 }
