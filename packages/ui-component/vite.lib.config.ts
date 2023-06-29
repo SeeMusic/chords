@@ -44,7 +44,7 @@ export default defineConfig(async ({ mode }) => {
       dts({
         include: 'src',
         staticImport: true,
-        logDiagnostics: true,
+        skipDiagnostics: true,
         compilerOptions: {
           ...tsConfig.compilerOptions
         },
