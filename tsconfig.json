@@ -111,5 +111,7 @@
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     // 取消 TypeScript 语言服务器中 JavaScript 文件总源代码大小 20mb 的上限。
     "disableSizeLimit": true,
-  }
+  },
+  "exclude": ["./packages/examples/**/*"],
+  "include": ["./packages/ui-component/**/*", "./packages/docs/**/*"],
 }
