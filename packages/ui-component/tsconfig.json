@@ -1,8 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
+  ],
   "include": [
     "./vite.*.config.ts",
-    "./src"
+    "./src",
+    "./package.json"
   ],
   "exclude": ["**/*.stories.ts" ],
   "compilerOptions": {
@@ -15,7 +20,6 @@
         "prismjs",
         "vue-router"
       ]
-    },
-    "types": ["vite/client"]
+    }
   }
 }

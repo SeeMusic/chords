@@ -15,6 +15,7 @@
   "scripts": {
     "build:dist": "vite build -c vite.dist-min.config.ts && vite build -c vite.dist.config.ts",
     "build:lib": "vite build -c vite.lib.config.ts",
+    "build:dev": "vite build -w -c vite.lib.config.ts",
     "build": "pnpm run build:lib && pnpm run build:dist"
   },
   "files": [

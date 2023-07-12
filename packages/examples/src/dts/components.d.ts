@@ -9,5 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
+    SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
   }
 }

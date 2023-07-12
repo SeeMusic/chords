@@ -3,6 +3,7 @@
   "include": ["env.d.ts", "./src/**/*", "./src/**/*.vue"],
   "exclude": ["./src/**/__tests__/*"],
   "compilerOptions": {
+    "moduleResolution": "node",
     "composite": true,
     "baseUrl": ".",
     "paths": {
@@ -10,7 +11,9 @@
     },
     "types": [
       "./node_modules/element-plus/global",
-      "./node_modules/@seemusic/ui-components/lib/volar"
+      "./node_modules/@seemusic/ui-components/lib/volar",
+      // "element-plus/global",
+      // "@seemusic/ui-components/lib/volar"
     ]
   }
 }

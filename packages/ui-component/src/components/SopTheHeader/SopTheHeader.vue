@@ -27,10 +27,13 @@ export default defineComponent({
   <div class="sop-the-header">
     <div class="the-header-left__content">
       <div class="the-logo" @click="$emit('logo-click')">
-        <img :src="logo">
+        <img
+          :src="logo"
+          height="20"
+        >
       </div>
 
-      <div class="the-sub-title">
+      <div v-if="subTitle" class="the-sub-title">
         <img
           v-if="isImg"
           :src="subTitle"

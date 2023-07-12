@@ -4,8 +4,9 @@
   "scripts": {
     "commit": "git-cz",
     "prepare": "husky install",
+    "dev": "pnpm --filter @seemusic/ui-components run build:dev",
     "build": "pnpm --filter @seemusic/ui-components run build",
-    "dev:examples": "pnpm --filter @seemusic/examples run dev"
+    "examples:dev": "pnpm --filter @seemusic/examples run dev"
   },
   "engines": {
     "node": ">=18.16.1"
