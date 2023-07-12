@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "author": "xsq",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

@@ -1,0 +1,24 @@
+{
+  "name": "@seemusic/docs",
+  "private": false,
+  "version": "0.0.1",
+  "description": "看见音乐中后台组件库",
+  "license": "MIT",
+  "author": "xsq",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-beta.5"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@seemusic/element-plus-theme-sop": "^2.3.6",
+    "@seemusic/styles": "^0.0.1",
+    "@seemusic/ui-components": "workspace:^",
+    "element-plus": "2.3.6",
+    "vitepress-demo-editor": "^3.2.1"
+  }
+}

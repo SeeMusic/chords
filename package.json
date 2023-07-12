@@ -6,7 +6,8 @@
     "prepare": "husky install",
     "dev": "pnpm --filter @seemusic/ui-components run build:dev",
     "build": "pnpm --filter @seemusic/ui-components run build",
-    "examples:dev": "pnpm --filter @seemusic/examples run dev"
+    "examples:dev": "pnpm --filter @seemusic/examples run dev",
+    "docs:dev": "pnpm --filter @seemusic/docs run docs:dev"
   },
   "engines": {
     "node": ">=18.16.1"
@@ -30,5 +31,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@seemusic/ui-components": "workspace:^"
   }
 }
