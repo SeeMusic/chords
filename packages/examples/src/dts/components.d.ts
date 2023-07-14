@@ -11,5 +11,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
+    SopPageHeader: typeof import('@seemusic/ui-components/components')['SopPageHeader']
   }
 }

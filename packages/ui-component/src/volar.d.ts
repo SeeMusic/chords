@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
     SopDataTable: typeof import('./components/SopDataTable')['SopDataTable']
     SopDataTableItem: typeof import('./components/SopDataTableItem')['SopDataTableItem']
     SopFilterForm: typeof import('./components/SopFilterForm')['SopFilterForm']
-    SopLayoutMain: typeof import('./components/SopLayoutMain')['SopLayoutMain']
     SopPageHeader: typeof import('./components/SopPageHeader')['SopPageHeader']
     SopStatus: typeof import('./components/SopStatus')['SopStatus']
     SopTheHeader: typeof import('./components/SopTheHeader')['SopTheHeader']

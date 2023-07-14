@@ -93,3 +93,12 @@
 span {
   font-style: normal !important;
 }
+
+:root {
+  --vp-c-brand: var(--seemusic-primary);
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-lightest: #bcc0ff;
+  --vp-c-brand-dark: var(--seemusic-primary);
+  --vp-c-brand-darker: #454ce1
+}

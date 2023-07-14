@@ -52,8 +52,8 @@ body,
 body {
   font-size: 12px;
   line-height: 1.5;
-  color: #333;
-  background: #FAFAFA;
+  /* color: #333; */
+  /* background: #FAFAFA; */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -108,4 +108,21 @@ textarea {
   display: inline-table;
   width: 100%;
   word-break: break-all;
+}
+
+.vp-doc table td {
+  text-align: left !important;
+}
+
+/* fix vitepress demo block bug */
+.sop-page__hd {
+  padding: 0 !important;
+}
+
+.sop-the-header {
+  position: initial;
+}
+
+.sop-the-header h3 {
+  margin-top: 0;
 }

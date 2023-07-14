@@ -1,13 +1,7 @@
 <template>
-  <SopLayoutMain
-    :headerOpt="{
-      subTitle: '副标题',
-      logo: 'https://pics.kanjian.com/favicon/kanjian-logo-blue@2x.png'
-    }"
-  >
-  </SopLayoutMain>
-
   <SopCard></SopCard>
+
+  <SopPageHeader title="页头" :back="-1" />
 </template>
 
 <script setup lang="ts"></script>

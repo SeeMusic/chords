@@ -9,7 +9,6 @@ const props = withDefaults(
     height?: number,
     placeholder?: string,
     isCoverEdit?: boolean,
-    coverEdit?: () => void
   }>(),
   {
     type: 'album',
@@ -18,9 +17,12 @@ const props = withDefaults(
     height: 72,
     placeholder: '',
     isCoverEdit: false,
-    coverEdit: () => ({})
   }
 );
+
+defineEmits<{
+  (e: 'cover-edit'): void
+}>();
 
 const CoverTypeList = [
   'album',
@@ -75,6 +77,7 @@ onBeforeUnmount(() => {
       width: `${width}px`,
       height: `${height}px`,
     }"
+    @click="isCoverEdit && $emit('cover-edit')"
   >
     <div
       class="edit"
@@ -84,18 +87,16 @@ onBeforeUnmount(() => {
         lineHeight: `${height}px`
       }"
     >
-      <template v-if="!!coverEdit">
-        <i
-          class="sop-icon sop-icon--input"
-          @click="coverEdit"
-        />
+      <template v-if="isCoverEdit">
+        <i class="sop-icon sop-icon--input" />
       </template>
     </div>
+
     <template v-if="src !== ''">
       <img
-        :src="src"
-        :width="width"
-        :height="height"
+        :src="src ? src : ''"
+        :width="width ? width : 0"
+        :height="height ? height : 0"
       >
     </template>
     <template v-else-if="placeholder !== ''">

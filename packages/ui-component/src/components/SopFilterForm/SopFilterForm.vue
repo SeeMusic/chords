@@ -31,6 +31,7 @@ export default defineComponent({
     class="sop-filter sop-filter--toggleable"
     :class="isFilterShow ? 'sop-filter--opened' : ''"
     label-position="top"
+    v-bind="$attrs"
     @submit.prevent
   >
     <div class="sop-filter__toggle">
