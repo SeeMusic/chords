@@ -1,0 +1,128 @@
+html {
+  text-rendering: optimizelegibility;
+}
+
+article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, iframe, menu, nav, section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+a, input, textarea, button {
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  /* color: #333; */
+  /* background: #FAFAFA; */
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #333;
+}
+
+a:link,
+a:hover {
+  text-decoration: none;
+}
+
+.highlight {
+  color: var(--seemusic-primary);
+}
+
+.sop-icon {
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: "PingFang HK", "PingFang SC", "Microsoft YaHei", "Heiti SC", "Heiti TC", "Helvetica Neue", "Helvetica"," Arial", sans-serif;
+}
+
+
+.opt {
+  .highlight + .highlight {
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+
+  .iconify + .iconify {
+    margin-left: 8px;
+  }
+}
+
+/* vitepress 自定义 */
+.demo {
+  box-shadow: 0 0 15px 4px #0000000a;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: none !important;
+}
+
+.vp-doc table {
+  display: inline-table;
+  width: 100%;
+  word-break: break-all;
+}
+
+.vp-doc table td {
+  text-align: left !important;
+}
+
+/* fix vitepress demo block bug */
+.sop-page__hd {
+  padding: 0 !important;
+}
+
+.sop-the-header {
+  position: initial;
+}
+
+.sop-the-header h3 {
+  margin-top: 0;
+}

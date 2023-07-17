@@ -1,6 +1,5 @@
 import type { App } from 'vue';
 
-export * from './composables';
 export * from './resolver';
 
 export interface SeeMusicOptions {

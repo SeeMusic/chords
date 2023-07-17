@@ -14,15 +14,11 @@ dist-ssr
 lib
 coverage
 *.local
-
-/cypress/videos/
-/cypress/screenshots/
-
-/packages/*/storybook-static/
+cache
+!.vitepress
 
 # Editor directories and files
 .vscode/*
-!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*

@@ -28,10 +28,10 @@ defineProps({
 </script>
 
 <template>
-  <div class="page__hd">
+  <div class="sop-page__hd">
     <div
       v-if="back"
-      class="page-path"
+      class="sop-page-path"
     >
       <template v-if="typeof back === 'number'">
         <a
@@ -50,22 +50,20 @@ defineProps({
         </RouterLink>
       </template>
 
-      <span
-        class="slice"
-      >/</span>
-
+      <span class="slice">/</span>
       <span>{{ title }}</span>
     </div>
+
     <div
       v-else
-      class="page-title"
+      class="sop-page-title"
     >
       {{ title }}
     </div>
 
     <div
       v-if="$slots.opt"
-      class="page-opt"
+      class="sop-page-opt"
     >
       <slot name="opt" />
     </div>

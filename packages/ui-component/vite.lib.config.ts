@@ -7,7 +7,6 @@ import MagicString from 'magic-string';
 import mkdirp from 'mkdirp';
 import dts from 'vite-plugin-dts';
 import pkg from './package.json';
-import tsConfig from './tsconfig.json';
 import { genComponentsType } from './scripts/gen-type';
 
 genComponentsType();
@@ -26,7 +25,6 @@ export default defineConfig(async ({ mode }) => {
       },
       rollupOptions: {
         external: ['vue', /\.scss$/, 'vue-router', 'element-plus', '@iconify/vue'],
-
         output: [
           {
             format: 'es',
@@ -44,10 +42,7 @@ export default defineConfig(async ({ mode }) => {
       dts({
         include: 'src',
         staticImport: true,
-        logDiagnostics: true,
-        compilerOptions: {
-          ...tsConfig.compilerOptions
-        },
+        skipDiagnostics: true,
         beforeWriteFile: (filePath: string, content: string) => {
           filePath = filePath.replace('lib/src', 'lib');
           if (filePath.endsWith('framework.d.ts')) {

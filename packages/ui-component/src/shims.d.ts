@@ -24,3 +24,10 @@ declare module '@vue/runtime-dom' {
     $children?: VNodeChild
   }
 }
+
+// declare module '*.vue' {
+//   // import { ComponentOptions } from 'vue';
+//   // const componentOptions: ComponentOptions;
+//   export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
+//   // export default componentOptions;
+// }
