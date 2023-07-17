@@ -17,12 +17,12 @@ export default defineConfig(({ mode }) => {
         entry: 'src/entry.ts',
         name: 'UIComponents',
         formats: ['umd'],
-        fileName: () => `${ pkg.name }.min.js`
+        fileName: () => `${pkg.name}.min.js`
       },
       rollupOptions: {
         external: ['vue', 'vue-router', 'element-plus', '@iconify/vue'],
         output: {
-          assetFileNames: `${ pkg.name }.min.css`,
+          assetFileNames: `${pkg.name}.min.css`,
           globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus', '@iconify/vue': 'Icon' }
         }
       }
