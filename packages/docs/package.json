@@ -10,9 +10,10 @@
     "docs:dev": "pnpm run register:components && vitepress dev",
     "docs:build": "pnpm run register:components && vitepress build",
     "docs:preview": "pnpm run register:components && vitepress preview",
-    "register:components": "vitepress-rc --docsDir ."
+    "register:components": "vitepress-rc --docsDir . --componentsDir ./.vitepress/src/theme/components"
   },
   "devDependencies": {
+    "terser": "^5.19.0",
     "vitepress": "1.0.0-beta.5",
     "vitepress-theme-demoblock": "^3.0.2"
   },
@@ -21,6 +22,7 @@
     "@seemusic/element-plus-theme-sop": "^2.3.6",
     "@seemusic/styles": "^0.0.1",
     "@seemusic/ui-components": "workspace:^",
+    "@vueuse/core": "^10.2.1",
     "element-plus": "2.3.6",
     "vue-router": "^4.2.2"
   }

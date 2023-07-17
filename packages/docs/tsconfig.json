@@ -4,13 +4,11 @@
       "path": "../../tsconfig.json"
     }
   ],
-  "include": [
-    "./.vitepress/**/*",
-    "./src/**/*",
-    "./package.json"
-  ],
-  "exclude": ["./node_modules", "./src/cache/**/*"],
+  "include": [".vitepress/**/*"],
+  "exclude": ["./node_modules"],
   "compilerOptions": {
+    "moduleResolution": "node",
+    "composite": true,
     "disableSizeLimit": true,
     "baseUrl": ".",
     "outDir": "./dist",

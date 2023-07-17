@@ -11,6 +11,6 @@ hero:
       link: /quick-start
     - theme: alt
       text: Components
-      link: /components/SopStatus
+      link: /components/Status
 ---
 
