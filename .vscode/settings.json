@@ -39,7 +39,9 @@
     "vitepress",
     "demoblock",
     "toggleable",
-    "keyup"
+    "keyup",
+    "autofix",
+    "webp"
   ],
   "prettier.enable": false,
   "editor.formatOnSave": true,

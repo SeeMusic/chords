@@ -1,4 +1,4 @@
-import SopDataTable from './SopDataTable.vue';
+import SopDataTable from './SopDataTable';
 import './styles/SopDataTable.scss';
 
 export { SopDataTable };

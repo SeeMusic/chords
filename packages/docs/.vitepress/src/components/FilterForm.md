@@ -54,6 +54,44 @@ const getList = () => {
 ```
 :::
 
+## 提交表单
+
+:::demo 
+
+```vue
+<template>
+  <SopFilterForm 
+    size="small"
+    :model="form"
+  >
+    <ElFormItem label="username">
+      <ElInput v-model="form.username" />
+    </ElFormItem>
+    <ElFormItem label="password">
+      <ElInput v-model="form.password" />
+    </ElFormItem>
+
+    <template #opt>
+      <ElButton type="primary" size="small" @click="submit">提交</ElButton>
+    </template>
+  </SopFilterForm>
+</template>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { ElMessage } from 'element-plus';
+
+const form = ref({
+  username: '',
+  password: ''
+});
+
+const submit = () => {
+  ElMessage.success(`u: ${form.value.username} - p: ${form.value.password}`);
+}
+</script>
+```
+:::
+
 ## API
 
 ### Attributes

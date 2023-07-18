@@ -4,7 +4,9 @@
 
 ```vue
 <template>
-  <SopCard />
+  <SopCard>
+    内容
+  </SopCard>
 </template>
 ```
 :::
@@ -17,6 +19,9 @@
 <template>
   <SopCard title="卡片标题" >
 
+    <template #titleExtra>
+      额外的标题部分
+    </template>
     卡片内容
   </SopCard>
 </template>

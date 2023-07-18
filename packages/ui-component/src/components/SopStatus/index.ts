@@ -1,4 +1,4 @@
-import SopStatus from './SopStatus.vue';
+import SopStatus from './SopStatus';
 import './styles/SopStatus.scss';
 
 export { SopStatus };

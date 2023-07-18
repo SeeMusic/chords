@@ -8,7 +8,7 @@ export interface SeeMusicOptions {
   components?: Record<string, any>
 }
 
-export function createSeeMusic (options: SeeMusicOptions = {}) {
+export function createSeeMusic(options: SeeMusicOptions = {}) {
   const install = (app: App) => {
 
     const {
@@ -17,7 +17,7 @@ export function createSeeMusic (options: SeeMusicOptions = {}) {
     } = options;
 
     for (const key in components) {
-      app.component(`${ componentPrefix }${ key }`, components[key]);
+      app.component(`${componentPrefix}${key}`, components[key]);
     }
 
 

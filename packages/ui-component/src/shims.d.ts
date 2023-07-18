@@ -11,8 +11,13 @@ declare global {
 }
 
 declare module 'vue' {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // import { ComponentOptions } from 'vue';
+  // const componentOptions: ComponentOptions;
   export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
+  // export default componentOptions;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
 }
 
 declare module '@vue/runtime-dom' {

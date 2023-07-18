@@ -7,10 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElTag: typeof import('element-plus/es')['ElTag']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SopBasicInfo: typeof import('@seemusic/ui-components/components')['SopBasicInfo']
     SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
+    SopCover: typeof import('@seemusic/ui-components/components')['SopCover']
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
     SopPageHeader: typeof import('@seemusic/ui-components/components')['SopPageHeader']
+    SopStatus: typeof import('@seemusic/ui-components/components')['SopStatus']
   }
 }

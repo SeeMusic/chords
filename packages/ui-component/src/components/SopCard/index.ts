@@ -1,4 +1,4 @@
-import SopCard from './SopCard.vue';
+import SopCard from './SopCard';
 import './styles/SopCard.scss';
 
 export { SopCard };

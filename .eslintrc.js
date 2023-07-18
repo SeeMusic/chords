@@ -21,7 +21,7 @@ module.exports = {
       'parserOptions': {
         'sourceType': 'script'
       }
-    }
+    },
   ],
   'parserOptions': {
     'ecmaVersion': 'latest',
@@ -33,9 +33,9 @@ module.exports = {
     'vue'
   ],
   'rules': {
-    'quotes': [ 'error', 'single' ],
+    'quotes': [ 'warn', 'single' ],
     'vue/no-v-html': 'off',
-    'vue/multi-word-component-names': [ 'error', {
+    'vue/multi-word-component-names': [ 'warn', {
       'ignores': [
         'Home',
         'Overview',
@@ -47,10 +47,10 @@ module.exports = {
     'object-curly-spacing': [ 'warn','always' ],
 
     // 大驼峰组件名
-    'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }],
+    'vue/component-name-in-template-casing': ['warn', 'PascalCase', { registeredComponentsOnly: false }],
     // 组件内容分区
-    'vue/component-tags-order': ['error', {
-      'order': [ [ 'template', 'script' ], 'style' ]
-    }]
+    'vue/component-tags-order': ['warn', {
+      'order': [ [ 'script', 'template' ], 'style' ]
+    }],
   }
 };

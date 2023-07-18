@@ -10,6 +10,8 @@
   />
 </template>
 <script setup lang="ts">
+import { ElMessage } from 'element-plus';
+
 const logoClick = () => {
   ElMessage.success('clicked logo');
 };

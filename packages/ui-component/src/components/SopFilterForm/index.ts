@@ -1,4 +1,4 @@
-import SopFilterForm from './SopFilterForm.vue';
+import SopFilterForm from './SopFilterForm';
 import './styles/SopFilterForm.scss';
 
 export { SopFilterForm };
