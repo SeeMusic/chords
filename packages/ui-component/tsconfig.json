@@ -1,25 +1,29 @@
 {
+  "compilerOptions": {
+    "disableSizeLimit": true,
+    "composite": true,
+    "baseUrl": ".",
+    "outDir": "./lib",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "node",
+      "vue-router"
+    ],
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    // "vite.*.config.ts"
+  ],
   "references": [
     {
       "path": "../../tsconfig.json"
     }
-  ],
-  "include": [
-    "./vite.*.config.ts",
-    "./src",
-    "./package.json"
-  ],
-  "exclude": ["**/*.stories.ts" ],
-  "compilerOptions": {
-    "disableSizeLimit": true,
-    "baseUrl": ".",
-    "outDir": "./lib",
-    "paths": {
-      "types": [
-        "node",
-        "prismjs",
-        "vue-router"
-      ]
-    }
-  }
+  ]
 }

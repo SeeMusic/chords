@@ -2,6 +2,7 @@
 import { h } from 'vue';
 import Theme from 'vitepress/theme';
 import { RouterLink } from 'vue-router';
+import { Icon } from '@iconify/vue';
 import { createSeeMusic } from '@seemusic/ui-components';
 import * as components from '@seemusic/ui-components/components';
 import ElementPlus from 'element-plus';
@@ -31,15 +32,18 @@ export default {
     const musicUI = createSeeMusic({ components });
     app.use(musicUI);
 
+    // element-plus and icon
     app.use(ElementPlus);
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component);
     }
-
+    // 自定义组件注册
     for (const [key, component] of Object.entries(customComponent)) {
       app.component(key, component);
     }
 
+    // eslint-disable-next-line vue/multi-word-component-names
+    app.component('Icon', Icon);
     app.component('RouterLink', RouterLink);
   }
 };

@@ -8,3 +8,4 @@ export * from './SopFilterForm';
 export * from './SopPageHeader';
 export * from './SopTheHeader';
 export * from './SopTheSidebar';
+export * from './SopLayoutMain';

@@ -60,6 +60,12 @@ const logoClick = () => {
 | `logo`        | 链接地址  |  `string`  | 无 | 否 |
 | `subTitle`        | 副标题 链接或普通文本 |  `string`  | 无 | 否 |
 
+### Events
+
+| 名称           |      说明     |  类型 |
+| ------------- | :-----------: | :-----------: | 
+| `logo-click`       | `logo` 的 `click` 事件     | `function` |
+
 ### Slots
 
 | 插槽名           |      说明     |  子标签 |

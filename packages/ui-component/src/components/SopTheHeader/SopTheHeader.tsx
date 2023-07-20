@@ -1,4 +1,4 @@
-import { defineComponent, computed, withModifiers } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 export default defineComponent({
   name: 'SopTheHeader',
@@ -21,9 +21,9 @@ export default defineComponent({
         <div class="the-header-left__content">
           <div
             class="the-logo"
-            onClick={withModifiers(() => {
+            onClick={() => {
               emit('logo-click');
-            }, [])}
+            }}
           >
             <img src={props.logo} height="20" />
           </div>

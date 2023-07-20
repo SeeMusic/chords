@@ -24,14 +24,14 @@ export default defineConfig(async ({ mode }) => {
         name: 'UIComponents'
       },
       rollupOptions: {
-        external: ['vue', /\.scss$/, 'vue-router', 'element-plus', '@iconify/vue'],
+        external: ['vue', /\.scss$/, 'vue-router', 'element-plus'],
         output: [
           {
             format: 'es',
             entryFileNames: '[name].mjs',
             preserveModules: true,
             preserveModulesRoot: 'src',
-            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus', '@iconify/vue': 'Icon' }
+            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus' }
           }
         ]
       }
@@ -53,7 +53,7 @@ export default defineConfig(async ({ mode }) => {
               ),
               'utf-8'
             );
-            content += `\n\n${ shims }`;
+            content += `\n\n${shims}`;
           }
           return {
             filePath,

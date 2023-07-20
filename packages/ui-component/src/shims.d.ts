@@ -36,3 +36,7 @@ declare module '@vue/runtime-dom' {
 //   export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
 //   // export default componentOptions;
 // }
+
+
+export { HeaderOpts, SidebarOpts } from './components/SopLayoutMain/SopLayoutMain';
+export { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';

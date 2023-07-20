@@ -1,7 +1,7 @@
 import { readdirSync, writeFileSync, access, constants, rmSync } from 'node:fs';
 
 const formatComponentType = (dir: string[]) => {
-  return`
+  return `
 // For this project development
 import '@vue/runtime-core';
 

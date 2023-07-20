@@ -1,4 +1,4 @@
-import SopTheSidebar from './SopTheSidebar.vue';
+import SopTheSidebar from './SopTheSidebar';
 import './styles/SopTheSidebar.scss';
 
 export { SopTheSidebar };
