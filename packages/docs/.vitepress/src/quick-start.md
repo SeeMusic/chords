@@ -1,12 +1,50 @@
 `@seemusic/ui-components` 基于 `Vue3` 开发，看见音乐中后台组件库。
 
-# 安装
+## 安装
 
-```
+``` bash
 pnpm add @seemusic/ui-components
 ```
 
-## 全量导入组件
+## 快速开始
+
+本项目样式依赖于 `@seemusic/element-plus-theme-sop` `@seemusic/styles` 使用之前请先进行安装。
+
+```bash
+pnpm install @seemusic/element-plus-theme-sop @seemusic/styles
+```
+
+推荐项目内使用方式如下。
+
+-  `src/assets` 新建 `css/theme.scss`。
+-  `vite.config.ts` 中增加相应配置。
+
+::: code-group
+
+```scss [theme.scss]
+@import "@seemusic/styles/src/colors/seemusic.scss";
+@import "@seemusic/element-plus-theme-sop";
+```
+
+```ts [vite.config.ts]
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  // ...
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 需要把 element 自定义样式提前加入; 在 main.ts 中引入会出现优先级顺序不对的问题
+        additionalData: '@use "@/assets/css/theme.scss" as *;'
+      }
+    }
+  },
+  // ...
+});
+```
+:::
+
+### 全量导入组件
 
 ```ts
 // main.ts
@@ -17,18 +55,18 @@ import { createSeeMusic } from '@seemusic/ui-components';
 import * as components from '@seemusic/ui-components/components';
 
 const app = createApp(App);
-const musicUI = createSeeMusic({ components });
-app.use(musicUI);
+const SeeMusicUI = createSeeMusic({ components });
+app.use(SeeMusicUI);
 ```
 
-## 按需导入组件
+### 按需导入组件
 
 ```ts
 // xxx.vue
 import { SopBasicInfo } from '@seemusic/ui-components/components';
 ```
 
-## 自动导入组件（推荐）
+### 自动导入组件（推荐）
 
 使用 `unplugin-vue-components` 插件来开启自动按需导入组件的支持。
 
@@ -63,7 +101,7 @@ export default defineConfig({
 
 ## `Volar` 支持
 
-如果您使用 Volar，请在 tsconfig.json 中通过 compilerOptions.type 指定全局组件类型。
+如果您使用 `VSCode`，请在 `tsconfig.json` 中通过 `compilerOptions.type` 指定全局组件类型。
 
 ```json
 // tsconfig.json

@@ -31,7 +31,7 @@
       // "./node_modules/element-plus/global",
       // "./node_modules/@seemusic/ui-components/lib/volar",
       "element-plus/global",
-      // "@seemusic/ui-components/lib/volar"
+      "@seemusic/ui-components/lib/volar"
     ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
