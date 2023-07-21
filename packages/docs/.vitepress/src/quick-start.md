@@ -1,5 +1,3 @@
-# 测试
-
 `@seemusic/ui-components` 基于 `Vue3` 开发，看见音乐中后台组件库。
 
 ## 安装
