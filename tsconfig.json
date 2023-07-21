@@ -105,10 +105,11 @@
     "disableSizeLimit": true,
   },
   "exclude": [
-    "./packages/examples/**/*"
+    "node_modules/**/*"
   ],
   "include": [
     "./packages/ui-component/**/*",
-    "./packages/docs/**/*"
+    "./packages/docs/**/*",
+    "./packages/examples/**/*"
   ],
 }

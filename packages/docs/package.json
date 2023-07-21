@@ -7,9 +7,10 @@
   "author": "xsq",
   "type": "module",
   "scripts": {
-    "docs:dev": "pnpm run register:components && vitepress dev",
-    "docs:build": "pnpm run register:components && vitepress build",
-    "docs:preview": "pnpm run register:components && vitepress preview",
+    "dev": "pnpm run register:components && vitepress dev",
+    "build": "pnpm run register:components && vitepress build",
+    "preview": "pnpm run register:components && vitepress preview",
+    "publish": "wrangler pages deploy dist --project-name chords-ui",
     "register:components": "vitepress-rc --docsDir . --componentsDir ./.vitepress/src/theme/components"
   },
   "devDependencies": {

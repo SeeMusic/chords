@@ -22,6 +22,24 @@ export type SidebarSubListItem = Pick<SidebarListItem, 'title' | 'icon' | 'href'
 export const navList: SidebarListItem[] =
   [
     {
+      title: '组件',
+      icon: h(Icon, { icon: 'icon-park-twotone:components' }),
+      subMenu: [
+        {
+          title: 'SuperForm',
+          path: '/super-form'
+        },
+        {
+          title: 'SuperTable',
+          path: '/super-table'
+        },
+        {
+          title: 'Modal',
+          path: '/modal'
+        },
+      ]
+    },
+    {
       title: 'DSP管理',
       icon: h(Icon, { icon: 'ph:git-branch-fill' }),
       subMenu: [

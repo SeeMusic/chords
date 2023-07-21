@@ -12,6 +12,18 @@ const router = createRouter({
       component: HomeView,
       children: [
         {
+          path: '/super-form',
+          component: () => import('@/views/SuperFormPage.vue')
+        },
+        {
+          path: '/super-table',
+          component: () => import('@/views/SuperTablePage.vue')
+        },
+        {
+          path: '/modal',
+          component: () => import('@/views/ModalPage.vue')
+        },
+        {
           path: '/404',
           name: 'NotFound',
           component: NotFound
