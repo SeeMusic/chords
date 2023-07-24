@@ -2,29 +2,29 @@
   <div>
     <ElButton @click="visible = true">按钮</ElButton>
 
-    <Modal
+    <SopDrawer
       v-model:visible="visible"
       title="标题"
-      @on-close="onModalClose"
-      @on-ok="onModalOK"
+      @on-close="onDrawerClose"
+      @on-ok="onDrawerOK"
     >
       弹窗内容
-    </Modal>
+    </SopDrawer>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Modal } from '@/components/Modal';
+import { SopDrawer } from '@/components/Drawer';
 import { ElMessage } from 'element-plus';
 
 const visible = ref(false);
 
-const onModalClose = () => {
+const onDrawerClose = () => {
   ElMessage.success('modal closed');
 };
 
-const onModalOK = (e: Record<string, (status?: boolean) => void>) => {
+const onDrawerOK = (e: Record<string, (status?: boolean) => void>) => {
   ElMessage.success('modal submit');
   e.setLoading(true);
   setTimeout(() => {

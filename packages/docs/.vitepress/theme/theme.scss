@@ -126,3 +126,9 @@ textarea {
 .sop-the-header h3 {
   margin-top: 0;
 }
+
+
+*[class*='el-'],
+*[class*='sop-'] {
+  box-sizing: content-box;
+}

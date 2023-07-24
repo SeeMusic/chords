@@ -12,9 +12,9 @@ import * as customComponent from './components';
 import './style.scss';
 import './theme.scss';
 import '@seemusic/styles/src/colors/seemusic.scss';
+import 'element-plus/dist/index.css';
 import '@seemusic/element-plus-theme-sop';
 import '@seemusic/ui-components/styles';
-import 'element-plus/dist/index.css';
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css';
 
 

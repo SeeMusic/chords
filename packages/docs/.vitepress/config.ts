@@ -102,6 +102,17 @@ function renderSidebar() {
             { text: '边栏 TheSidebar', link: '/components/Sidebar' },
             { text: '主页面 LayoutMain', link: '/components/LayoutMain' }
           ]
+        },
+        {
+          text: 'Feedback 反馈组件',
+          items: [
+            {
+              text: '弹窗 Dialog', link: '/components/Dialog'
+            },
+            {
+              text: '抽屉 Drawer', link: '/components/Drawer'
+            }
+          ]
         }
       ]
     }

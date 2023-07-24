@@ -13,7 +13,7 @@ declare global {
 declare module 'vue' {
   // import { ComponentOptions } from 'vue';
   // const componentOptions: ComponentOptions;
-  export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
+  export type JSXComponent<Props = any> = { new(): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
   // export default componentOptions;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,13 +30,9 @@ declare module '@vue/runtime-dom' {
   }
 }
 
-// declare module '*.vue' {
-//   // import { ComponentOptions } from 'vue';
-//   // const componentOptions: ComponentOptions;
-//   export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
-//   // export default componentOptions;
-// }
-
-
-export { HeaderOpts, SidebarOpts } from './components/SopLayoutMain/SopLayoutMain';
-export { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';
+// 组件类型导出
+export type { HeaderOpts, SidebarOpts } from './components/SopLayoutMain/SopLayoutMain';
+export type { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';
+export type { StatusTypeEnum } from './components/SopStatus/SopStatus';
+export type { CoverTypeEnum } from './components/SopCover/SopCover';
+export type { OnOKEvent, DialogOrDrawerHeaderSlots } from './components/SopDialog/SopDialog';

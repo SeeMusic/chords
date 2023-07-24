@@ -24,6 +24,10 @@ const router = createRouter({
           component: () => import('@/views/ModalPage.vue')
         },
         {
+          path: '/drawer',
+          component: () => import('@/views/DrawerPage.vue')
+        },
+        {
           path: '/404',
           name: 'NotFound',
           component: NotFound

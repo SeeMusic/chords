@@ -9,3 +9,5 @@ export * from './SopPageHeader';
 export * from './SopTheHeader';
 export * from './SopTheSidebar';
 export * from './SopLayoutMain';
+export * from './SopDialog';
+export * from './SopDrawer';

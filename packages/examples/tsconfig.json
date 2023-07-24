@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    // "strict": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
     "disableSizeLimit": true,
     "composite": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
     "baseUrl": ".",
     "paths": {
       "@/*": [

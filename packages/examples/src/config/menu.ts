@@ -37,6 +37,10 @@ export const navList: SidebarListItem[] =
           title: 'Modal',
           path: '/modal'
         },
+        {
+          title: 'Drawer',
+          path: '/drawer'
+        },
       ]
     },
     {

@@ -1,22 +1,27 @@
 import { defineComponent, ref, computed } from 'vue';
-import { ElDialog, ElButton } from 'element-plus';
+import { ElDrawer, ElButton } from 'element-plus';
 
 export interface OnOKEvent {
   close: () => void
   setLoading: (status: boolean) => void
 }
+export interface DialogOrDrawerHeaderSlots {
+  close: () => void
+  titleId: string
+  titleClass: string
+}
 
 export default defineComponent({
-  name: 'SopDialog',
-  components: { ElDialog, ElButton },
+  name: 'SopDrawer',
+  components: { ElDrawer, ElButton },
   props: {
     visible: {
       type: Boolean,
       required: true
     },
-    width: {
-      type: String,
-      default: '45%'
+    size: {
+      type: Number || String,
+      default: 448
     },
     isDefaultFooter: {
       type: Boolean,
@@ -59,15 +64,15 @@ export default defineComponent({
     };
 
     return () => (
-      <ElDialog
+      <ElDrawer
         {...attrs}
         modelValue={props.visible}
         before-close={beforeClose}
-        width={props.width}
+        size={props.size}
         destroy-on-close
       >
         {{
-          header: () => slots.header?.(),
+          header: (val: DialogOrDrawerHeaderSlots) => slots.header?.(val),
           default: () => slots.default?.(),
           footer: () => (
             isShowDefaultFooter.value ?
@@ -92,7 +97,7 @@ export default defineComponent({
               slots.footer?.()
           )
         }}
-      </ElDialog>
+      </ElDrawer>
     );
   },
 });

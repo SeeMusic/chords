@@ -5,6 +5,11 @@ export interface OnOKEvent {
   close: () => void
   setLoading: (status: boolean) => void
 }
+export interface DialogOrDrawerHeaderSlots {
+  close: () => void
+  titleId: string
+  titleClass: string
+}
 
 export default defineComponent({
   name: 'SopDialog',
@@ -63,30 +68,30 @@ export default defineComponent({
         {...attrs}
         modelValue={props.visible}
         before-close={beforeClose}
-        width={props.width}
         destroy-on-close
+        width={props.width}
       >
         {{
-          header: () => slots.header?.(),
+          header: (val: DialogOrDrawerHeaderSlots) => slots.header?.(val),
           default: () => slots.default?.(),
           footer: () => (
             isShowDefaultFooter.value ?
               <>
                 {
                   props.isShowCancelBtn &&
-                <ElButton onClick={beforeClose}>{props.cancelBtnText}</ElButton>
+                  <ElButton onClick={beforeClose}>{props.cancelBtnText}</ElButton>
                 }
                 {
                   props.isShowConfirmBtn &&
-                <ElButton
-                  loading={loading.value}
-                  type="primary"
-                  onClick={() => {
-                    emit('on-ok', okEvents);
-                  }}
-                >
-                  {props.confirmBtnText}
-                </ElButton>
+                  <ElButton
+                    loading={loading.value}
+                    type="primary"
+                    onClick={() => {
+                      emit('on-ok', okEvents);
+                    }}
+                  >
+                    {props.confirmBtnText}
+                  </ElButton>
                 }
               </> :
               slots.footer?.()
