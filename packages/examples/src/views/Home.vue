@@ -26,10 +26,6 @@ import { ref, h, watch, computed } from 'vue';
 import { Icon } from '@iconify/vue';
 import { ElMessage } from 'element-plus';
 
-// import { TheSidebar } from '@/components/TheSidebar';
-// import { TheHeader } from '@/components/TheHeader';
-// import { LayoutMain } from '@/components/LayoutMain';
-
 import { navList } from '@/config';
 
 const collapse = ref(false);

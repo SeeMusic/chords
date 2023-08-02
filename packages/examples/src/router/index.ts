@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/Home.vue';
-import NotFound from '@/views/NotFound.vue';
+import HomeView from '../views/Home.vue';
+import ExamplePage from '../views/ExamplePage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,27 +12,10 @@ const router = createRouter({
       component: HomeView,
       children: [
         {
-          path: '/super-form',
-          component: () => import('@/views/SuperFormPage.vue')
-        },
-        {
-          path: '/super-table',
-          component: () => import('@/views/SuperTablePage.vue')
-        },
-        {
-          path: '/modal',
-          component: () => import('@/views/ModalPage.vue')
-        },
-        {
-          path: '/drawer',
-          component: () => import('@/views/DrawerPage.vue')
-        },
-        {
-          path: '/404',
-          name: 'NotFound',
-          component: NotFound
-        },
-        { path: '/:pathMatch(.*)*', component: NotFound },
+          path: 'examples',
+          name: 'Example',
+          component: ExamplePage
+        }
       ]
     },
   ]

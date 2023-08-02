@@ -1,41 +1,11 @@
 {
-  "compilerOptions": {
-    /* Linting */
-    // "strict": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    "disableSizeLimit": true,
-    "composite": true,
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "types": [
-      // "./node_modules/element-plus/global",
-      // "./node_modules/@seemusic/ui-components/lib/volar",
-      "element-plus/global",
-      "@seemusic/ui-components/lib/volar",
-      "node",
-      "vue-router"
-    ]
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
+  "files": [],
   "references": [
     {
       "path": "./tsconfig.node.json"
     },
     {
-      "path": "../../tsconfig.json"
+      "path": "./tsconfig.app.json"
     }
   ]
 }
