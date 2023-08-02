@@ -41,7 +41,8 @@
     "toggleable",
     "keyup",
     "autofix",
-    "webp"
+    "webp",
+    "Arrayable"
   ],
   "prettier.enable": false,
   "editor.formatOnSave": true,

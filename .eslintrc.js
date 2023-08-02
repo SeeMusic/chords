@@ -43,7 +43,7 @@ module.exports = {
     } ],
 
     'semi': [ 'warn', 'always' ],
-    'indent': [ 'warn', 2 ],
+    // 'indent': [ 'warn', 2 ],
     'object-curly-spacing': [ 'warn','always' ],
 
     // 大驼峰组件名
