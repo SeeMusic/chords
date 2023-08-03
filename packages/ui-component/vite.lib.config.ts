@@ -7,7 +7,6 @@ import MagicString from 'magic-string';
 import mkdirp from 'mkdirp';
 import dts from 'vite-plugin-dts';
 import pkg from './package.json';
-import tsConfig from './tsconfig.json';
 import { genComponentsType } from './scripts/gen-type';
 
 genComponentsType();
@@ -25,15 +24,14 @@ export default defineConfig(async ({ mode }) => {
         name: 'UIComponents'
       },
       rollupOptions: {
-        external: ['vue', /\.scss$/, 'vue-router', 'element-plus', '@iconify/vue'],
-
+        external: ['vue', /\.scss$/, 'vue-router', 'element-plus'],
         output: [
           {
             format: 'es',
             entryFileNames: '[name].mjs',
             preserveModules: true,
             preserveModulesRoot: 'src',
-            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus', '@iconify/vue': 'Icon' }
+            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus' }
           }
         ]
       }
@@ -44,10 +42,7 @@ export default defineConfig(async ({ mode }) => {
       dts({
         include: 'src',
         staticImport: true,
-        logDiagnostics: true,
-        compilerOptions: {
-          ...tsConfig.compilerOptions
-        },
+        skipDiagnostics: true,
         beforeWriteFile: (filePath: string, content: string) => {
           filePath = filePath.replace('lib/src', 'lib');
           if (filePath.endsWith('framework.d.ts')) {
@@ -58,7 +53,7 @@ export default defineConfig(async ({ mode }) => {
               ),
               'utf-8'
             );
-            content += `\n\n${ shims }`;
+            content += `\n\n${shims}`;
           }
           return {
             filePath,

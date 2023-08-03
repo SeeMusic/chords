@@ -1,0 +1,59 @@
+{
+  // 启用拼写检查器
+  "cSpell.enabled": true,
+  // 拼写检查忽略路径
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    ".gitlab"
+  ],
+  // 拼写检查忽略内容
+  "cSpell.ignoreWords": [
+    "unplugin",
+    "seemusic",
+    "vueuse",
+    "musicverse",
+    "nocheck",
+    "optimizelegibility",
+    "iconify",
+    "kanjianmusic",
+    "pinia",
+    "commitlint",
+    "intlify",
+    "nodenext",
+    "kanjian",
+    "cascader",
+    "Unlimit",
+    "nums",
+    "Heiti",
+    "rushstack",
+    "espree",
+    "composables",
+    "UsercenterLayout",
+    "currentuser",
+    "prismjs",
+    "vitepress",
+    "demoblock",
+    "toggleable",
+    "keyup",
+    "autofix",
+    "webp",
+    "Arrayable"
+  ],
+  "prettier.enable": false,
+  "editor.formatOnSave": true,
+  // 按照 eslint 配置格式化代码
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+  },
+  "i18n-ally.localesPaths": [
+    "src/locale",
+    "src/locale/lang"
+  ],
+  "commentTranslate.targetLanguage": "zh-CN"
+}

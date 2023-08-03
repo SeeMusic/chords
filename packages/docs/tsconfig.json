@@ -1,0 +1,22 @@
+{
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
+  ],
+  "include": [
+    ".vitepress/**/*"
+  ],
+  "exclude": [
+    "./node_modules"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "disableSizeLimit": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "types": [
+      "node",
+    ]
+  }
+}

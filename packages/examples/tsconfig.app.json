@@ -1,0 +1,27 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "src/**/__tests__/*"
+  ],
+  "compilerOptions": {
+    // typescript 升级 5.0 后，需要添加 moduleResolution: "node"
+    // https://github.com/element-plus/element-plus/issues/11818#issuecomment-1539757308
+    "moduleResolution": "node",
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "element-plus/global",
+      "@seemusic/ui-components/lib/volar"
+    ]
+  }
+}

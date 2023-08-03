@@ -1,0 +1,15 @@
+.app-layout-main {
+  width: 100%;
+  min-height: 100vh;
+  .el-aside {
+    border-top: none !important;
+  }
+
+  .el-header {
+    height: 64px;
+    padding: 0;
+  }
+  .el-main {
+    padding: 0 24px;
+  }
+}

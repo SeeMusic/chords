@@ -1,0 +1,31 @@
+{
+  "name": "@seemusic/docs",
+  "private": false,
+  "version": "0.0.1",
+  "description": "看见音乐中后台组件库",
+  "license": "MIT",
+  "author": "xsq",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm run register:components && vitepress dev",
+    "build": "pnpm run register:components && vitepress build",
+    "preview": "pnpm run register:components && vitepress preview",
+    "publish": "wrangler pages deploy dist --project-name chords-ui",
+    "register:components": "vitepress-rc --docsDir . --componentsDir ./.vitepress/src/theme/components"
+  },
+  "devDependencies": {
+    "terser": "^5.19.0",
+    "vitepress": "1.0.0-beta.5",
+    "vitepress-theme-demoblock": "^3.0.2"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@iconify/vue": "^4.1.1",
+    "@seemusic/element-plus-theme-sop": "^2.3.6",
+    "@seemusic/styles": "^0.0.1",
+    "@seemusic/ui-components": "workspace:^",
+    "@vueuse/core": "^10.2.1",
+    "element-plus": "2.3.6",
+    "vue-router": "^4.2.2"
+  }
+}

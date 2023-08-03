@@ -38,3 +38,6 @@ export function toPascalCase(str: string): string {
     str.replace(/^[a-z]/, (match: string) => match.toLocaleUpperCase())
   );
 }
+
+// 正则校验
+export * from './reg';

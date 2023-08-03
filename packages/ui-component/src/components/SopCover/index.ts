@@ -1,4 +1,4 @@
-import SopCover from './SopCover.vue';
+import SopCover from './SopCover';
 import './styles/SopCover.scss';
 
 export { SopCover };

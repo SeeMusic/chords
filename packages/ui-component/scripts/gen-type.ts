@@ -1,5 +1,4 @@
-import { readdirSync, writeFileSync } from 'node:fs';
-import fs from 'node:fs';
+import { readdirSync, writeFileSync, access, constants, rmSync } from 'node:fs';
 
 const formatComponentType = (dir: string[]) => {
   return `
@@ -9,9 +8,7 @@ import '@vue/runtime-core';
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     // GlobalComponents for Volar
-    ${dir
-    .map((i) => `${i}: typeof import('./components/${i}')['${i}']`)
-    .join('\n    ')}
+    ${dir.map(i => `${i}: typeof import('./components/${i}')['${i}']`).join('\n    ')}
   }
 }
 
@@ -25,9 +22,9 @@ export const genComponentsType = () => {
   // components 下的所有组件文件夹
   const dir = ret.filter((i) => !(i as unknown as string).includes('.'));
 
-  fs.access(fileName, fs.constants.F_OK, (err) => {
+  access(fileName, constants.F_OK, (err) => {
     if (!err) {
-      fs.rmSync(fileName);
+      rmSync(fileName);
       // const str = formatComponentType(dir);
       // appendFileSync(fileName, str, 'utf-8');
     }

@@ -1,6 +1,8 @@
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import pkg from './package.json';
 
 export default defineConfig(({ mode }) => {
@@ -15,13 +17,13 @@ export default defineConfig(({ mode }) => {
         entry: 'src/entry.ts',
         name: 'UIComponents',
         formats: ['umd'],
-        fileName: () => `${ pkg.name }.min.js`
+        fileName: () => `${pkg.name}.min.js`
       },
       rollupOptions: {
-        external: ['vue', 'vue-router', 'element-plus', '@iconify/vue'],
+        external: ['vue', 'vue-router', 'element-plus'],
         output: {
-          assetFileNames: `${ pkg.name }.min.css`,
-          globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus', '@iconify/vue': 'Icon' }
+          assetFileNames: `${pkg.name}.min.css`,
+          globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus' }
         }
       }
     },
@@ -35,3 +37,4 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
+

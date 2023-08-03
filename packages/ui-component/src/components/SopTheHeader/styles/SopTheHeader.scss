@@ -1,6 +1,3 @@
-
-@use '../../../styles/base.scss';
-
 .sop-the-header {
   --header-bg-color: #FFF;
   --header-content-color: #FFF;
@@ -31,6 +28,7 @@
 
     .the-logo {
       margin-right: 40px;
+      cursor: pointer;
     }
     .the-sub-title {
       position: relative;

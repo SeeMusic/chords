@@ -1,112 +1,99 @@
-
-.the-sidebar {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  padding-top: 16px;
-  box-sizing: border-box;
-  background: #FFF;
-  width: 256px;
-  height: 100%;
-
-  .icon-ipo {
-    font-size: 16px;
+ // menu item 的统一样式
+ @mixin menu-item-style {
+  .el-sub-menu__title,
+  .el-menu-item {
+    height: 50px;
+    font-size: 14px;
+    color: #000000a6;
+    line-height: 22px;
+    &:hover {
+      background-color: rgba(0, 64, 255, .08) !important;
+    }
   }
-
-  a {
-    color: #333;
-  }
-
-  & > ul {
-    &::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: #383E4B;
-      box-shadow: inset 0 0 1px rgba(0, 0, 0, .7);
-    }
-
-    &::-webkit-scrollbar-track-piece {
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #22262e;
-    }
-
-    h2 {
-      box-sizing: border-box;
+  .el-menu-item {
+    height: 44px;
+    &.is-active {
       position: relative;
-      padding: 9px 24px;
+      color: var(--seemusic-primary) !important;
+      background-color: rgba(0, 64, 255, .08) !important;
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2px;
+        background-color: var(--seemusic-primary);
+      }
+    }
+  }
+}
+
+.app-aside {
+  --aside-bg-color: #FFF;
+  --aside-border-color: #DDD;
+
+  position: relative;
+  box-sizing: border-box;
+  background-color: var(--aside-bg-color);
+  border: 1px solid var(--aside-border-color);
+  // fix 去除原有 menu 的折叠动画，在 side 上面加动画
+  transition: var(--el-transition-duration) width ease-out;
+
+  &.aside-collapse {
+    width: 64px;
+  }
+
+  .el-scrollbar__bar {
+    &.is-vertical,
+    &.is-horizontal {
+      opacity: 0;
+    }
+  }
+
+  .el-menu {
+    border-right: none;
+    &.el-menu--vertical {
+      padding-top: 16px;
+      padding: 16px 0 0 0;
+    }
+    &.collapse-menu {
+      &.el-menu--vertical {
+        padding: 16px 0 60px 0;
+      }
+    }
+    @include menu-item-style;
+
+    .menu-icon {
       display: flex;
       align-items: center;
-      color: #333;
-      font-size: 18px;
-      font-weight: 400;
+      padding-right: 10px;
+      font-size: 16px;
+    }
+  }
+
+  // icon-container
+  .collapse-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background-color: var(--aside-bg-color);
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: 2px 48px 60px rgba(0, 0, 0, 0.7);
+    div {
+      display: inline-block;
+      padding: 0 20px;
       cursor: pointer;
     }
-
-    .sd-aside__nav-group-icon {
-      padding-right: 12px;
-    }
-
-    .sd-aside__nav-group-title {
-      font-size: 14px;
-      color: rgba(0,0,0,0.65);
-      line-height: 22px;
-    }
-
-    .sd-icon-arrow-down {
-      position: absolute;
-      right: 16px;
-      width: 16px;
-      height: 16px;
-      transform: rotate(-90deg);
-      transition: transform .3s;
-    }
-
-    & > li {
-
-      &.closed {
-        .sd-icon-arrow-down {
-          transform: rotate(0deg);
-        }
-
-        ul {
-          display: none;
-        }
-      }
-    }
   }
+}
 
-  .router-link-exact-active {
-    background: rgba(0, 64, 255, .08);
-    color: var(--kanjian-blue);
-    border-right: 2px solid #1890FF;
-  }
 
-  li li {
-    a {
-      display: block;
-      line-height: 22px;
-      padding: 9px 0 9px 52px;
-      font-size: 14px;
-    }
-
-    &:hover {
-      a {
-        background: rgba(0, 64, 255, .08);
-        color: var(--seemusic-primary);
-      }
-    }
-  }
+.sub-menu__popper {
+  @include menu-item-style;
 }

@@ -1,6 +1,6 @@
 @use "../../../styles/base.scss";
 
-.page__hd {
+.sop-page__hd {
   margin-bottom: 16px;
   padding: 12px 0;
   height: 24px;
@@ -27,16 +27,16 @@
     transform: rotate(90deg);
   }
 
-  .page-path,
-  .page-title {
+  .sop-page-path,
+  .sop-page-title {
     float: left;
   }
 
-  .page-title {
+  .sop-page-title {
     font-weight: 600;
   }
 
-  .page-opt {
+  .sop-page-opt {
     float: right;
   }
 }

@@ -17,20 +17,20 @@ export default defineConfig(({ mode }) => {
         name: 'UIComponents'
       },
       rollupOptions: {
-        external: ['vue', 'vue-router', 'element-plus', '@iconify/vue'],
+        external: ['vue', 'vue-router', 'element-plus'],
         output: [
           {
-            assetFileNames: `${ pkg.name }.es.css`
+            assetFileNames: `${pkg.name}.es.css`
           },
           {
             format: 'es',
-            entryFileNames: `${ pkg.name }.es.js`
+            entryFileNames: `${pkg.name}.es.js`
           },
           {
             format: 'umd',
-            entryFileNames: `${ pkg.name }.js`,
-            name: `${ pkg.name }.js`,
-            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus', '@iconify/vue': 'Icon' }
+            entryFileNames: `${pkg.name}.js`,
+            name: `${pkg.name}.js`,
+            globals: { vue: 'Vue', 'vue-router': 'VueRouter', 'element-plus': 'ElementPlus' }
           }
         ]
       }

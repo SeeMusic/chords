@@ -1,21 +1,29 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": [
-    "./vite.*.config.ts",
-    "./src"
-  ],
-  "exclude": ["**/*.stories.ts" ],
   "compilerOptions": {
     "disableSizeLimit": true,
+    "composite": true,
     "baseUrl": ".",
     "outDir": "./lib",
     "paths": {
-      "types": [
-        "node",
-        "prismjs",
-        "vue-router"
+      "@/*": [
+        "./src/*"
       ]
     },
-    "types": ["vite/client"]
-  }
+    "types": [
+      "node",
+      "vue-router"
+    ],
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.*.config.ts"
+  ],
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
+  ]
 }

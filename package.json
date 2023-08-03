@@ -4,7 +4,18 @@
   "scripts": {
     "commit": "git-cz",
     "prepare": "husky install",
-    "build": "pnpm --filter @seemusic/ui-components run build"
+
+    "dev": "pnpm --filter @seemusic/ui-components run build:dev",
+    "build": "pnpm --filter @seemusic/ui-components run build",
+
+    "examples:dev": "pnpm --filter @seemusic/examples run dev",
+    "examples:build": "pnpm --filter @seemusic/examples run build",
+    "examples:pre": "pnpm --filter @seemusic/examples run preview",
+
+    "docs:dev": "pnpm --filter @seemusic/docs run dev",
+    "docs:build": "pnpm --filter @seemusic/docs run build",
+    "docs:pre": "pnpm --filter @seemusic/docs run preview",
+    "docs:publish": "pnpm --filter @seemusic/docs run publish"
   },
   "engines": {
     "node": ">=18.16.1"
@@ -28,5 +39,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@seemusic/element-plus-theme-sop": "^2.3.6",
+    "@seemusic/styles": "^0.0.1",
+    "element-plus": "2.3.6"
   }
 }
