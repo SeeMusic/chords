@@ -19,9 +19,7 @@ pnpm install @seemusic/element-plus-theme-sop @seemusic/styles
 -  `src/assets` 新建 `css/theme.scss`。
 -  `vite.config.ts` 中增加相应配置。
 
-::: code-group
-
-```scss [theme.scss]
+```scss 
 @import "@seemusic/styles/src/colors/seemusic.scss";
 @import "@seemusic/element-plus-theme-sop";
 ```
@@ -42,7 +40,6 @@ export default defineConfig({
   // ...
 });
 ```
-:::
 
 ### 全量导入组件
 

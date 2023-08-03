@@ -11,6 +11,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
+    SopDialog: typeof import('@seemusic/ui-components/components')['SopDialog']
+    SopDrawer: typeof import('@seemusic/ui-components/components')['SopDrawer']
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
   }
 }

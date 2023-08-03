@@ -9,6 +9,7 @@
   <SopDrawer
     v-model:visible="visible"
     title="Tips"
+    :is-show-footer="false"
   >
     this is message
   </SopDrawer>
@@ -76,7 +77,7 @@ const visible = ref(false);
   <SopDrawer 
     v-model:visible="visible" 
     title="Tips"
-    is-default-footer
+    is-show-default-footer
     @on-ok="submit"
     @on-close="close"
   >
@@ -150,7 +151,8 @@ const close = () => {
 | `attrs` | 支持所有 `ElDrawer` 属性  |    |  | 否 |
 | `v-model:visible` | 绑定值  |  `boolean`  | `false` | 否 |
 | `width`       | 宽度    |  `string` | `45%` | 否 |
-| `isDefaultFooter` | 是否显示默认的`footer`内容 <MoreTip content="当值为 false 时以下属性全部失效" /> |  `boolean`  | `false` | 否 |
+| `isShowFooter`       | 是否显示 `footer`    |  `boolean` | `true` | 否 |
+| `isShowDefaultFooter` | 是否显示默认的`footer`内容 <MoreTip content="当值为 false 时以下属性全部失效" /> |  `boolean`  | `false` | 否 |
 | `isShowConfirmBtn` | 是否显示确认按钮  |  `boolean` | `true` | 否 |
 | `isShowCancelBtn` | 是否显示取消按钮  |  `boolean` | `true` | 否 |
 | `confirmBtnText` | 确认按钮文本  |  `string` | 确认 | 否 |
