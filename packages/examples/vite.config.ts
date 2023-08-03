@@ -43,7 +43,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 需要把 element 自定义样式提前加入; 在 main.ts 中引入会出现优先级顺序不对的问题
-        additionalData: '@use "@/assets/theme.scss" as *;',
+        additionalData: '@use "./src/assets/theme.scss" as *;',
       },
     },
   },

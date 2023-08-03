@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, ref, computed, Slots } from 'vue';
 import { ElDialog, ElButton } from 'element-plus';
 
 export interface OnOKEvent {
@@ -23,7 +23,11 @@ export default defineComponent({
       type: String,
       default: '45%'
     },
-    isDefaultFooter: {
+    isShowFooter: {
+      type: Boolean,
+      default: true,
+    },
+    isShowDefaultFooter: {
       type: Boolean,
       default: false,
     },
@@ -47,7 +51,7 @@ export default defineComponent({
   emits: ['update:visible', 'on-ok', 'on-close'],
   setup(props, { attrs, emit, slots }) {
     const loading = ref(false);
-    const isShowDefaultFooter = computed(() => (props.isShowCancelBtn || props.isShowConfirmBtn) && props.isDefaultFooter);
+    const isShowDefaultFooter = computed(() => (props.isShowCancelBtn || props.isShowConfirmBtn) && props.isShowDefaultFooter);
 
     function beforeClose() {
       emit('on-close');
@@ -63,6 +67,39 @@ export default defineComponent({
       setLoading
     };
 
+    function renderFooter(slots: Slots) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const slot: Record<string, any> = {
+        header: (val: DialogOrDrawerHeaderSlots) => slots.header?.(val),
+        default: () => slots.default?.()
+      };
+      if (props.isShowFooter) {
+        slot['footer'] = () => (
+          isShowDefaultFooter.value ?
+            <>
+              {
+                props.isShowCancelBtn &&
+                <ElButton onClick={beforeClose}>{props.cancelBtnText}</ElButton>
+              }
+              {
+                props.isShowConfirmBtn &&
+                <ElButton
+                  loading={loading.value}
+                  type="primary"
+                  onClick={() => {
+                    emit('on-ok', okEvents);
+                  }}
+                >
+                  {props.confirmBtnText}
+                </ElButton>
+              }
+            </> :
+            slots.footer?.()
+        );
+      }
+      return slot;
+    }
+
     return () => (
       <ElDialog
         {...attrs}
@@ -71,32 +108,7 @@ export default defineComponent({
         destroy-on-close
         width={props.width}
       >
-        {{
-          header: (val: DialogOrDrawerHeaderSlots) => slots.header?.(val),
-          default: () => slots.default?.(),
-          footer: () => (
-            isShowDefaultFooter.value ?
-              <>
-                {
-                  props.isShowCancelBtn &&
-                  <ElButton onClick={beforeClose}>{props.cancelBtnText}</ElButton>
-                }
-                {
-                  props.isShowConfirmBtn &&
-                  <ElButton
-                    loading={loading.value}
-                    type="primary"
-                    onClick={() => {
-                      emit('on-ok', okEvents);
-                    }}
-                  >
-                    {props.confirmBtnText}
-                  </ElButton>
-                }
-              </> :
-              slots.footer?.()
-          )
-        }}
+        {renderFooter(slots)}
       </ElDialog>
     );
   },
