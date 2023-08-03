@@ -7,6 +7,7 @@
 
     "dev": "pnpm --filter @seemusic/ui-components run build:dev",
     "build": "pnpm --filter @seemusic/ui-components run build",
+    "release:npm": "cd ./packages/ui-component/ && pnpm publish",
 
     "examples:dev": "pnpm --filter @seemusic/examples run dev",
     "examples:build": "pnpm --filter @seemusic/examples run build",

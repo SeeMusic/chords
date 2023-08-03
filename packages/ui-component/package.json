@@ -1,7 +1,7 @@
 {
   "name": "@seemusic/ui-components",
   "private": false,
-  "version": "0.0.6-alpha.1",
+  "version": "0.0.6-alpha.2",
   "description": "A Vue 3 UI Library. Uses Composable.",
   "keywords": [
     "ui-components",
