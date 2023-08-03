@@ -1,5 +1,8 @@
 import { defineConfig } from 'vitepress';
 import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { version } from '../../ui-component/package.json';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,17 +19,31 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Components', link: '/quick-start' }
+      { text: 'Components', link: '/quick-start' },
+      {
+        text: version, link: 'https://www.npmjs.com/package/@kanjianmusic/fn',
+      },
+      {
+        text: 'Link',
+        items: [
+          {
+            text: 'Fn 公共函数库', link: 'https://fn.seemusic.xyz/'
+          },
+          {
+            text: 'F2E 文档站点', link: 'https://f2e.seemusic.xyz/'
+          }
+        ]
+      },
     ],
     sidebar: renderSidebar(),
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/SeeMusic/chords' }
     ],
     outline: 'deep',
     docFooter: { prev: '上一篇', next: '下一篇' },
     lastUpdatedText: '最近更新时间',
     editLink: {
-      pattern: 'https://github.com/DoubleXm/blog/blob/main/docs/:path',
+      pattern: 'https://github.com/SeeMusic/chords/blob/main/packages/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
   },
