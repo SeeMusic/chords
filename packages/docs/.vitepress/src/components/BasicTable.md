@@ -843,6 +843,7 @@ const tableData = [
 | `editRule`        | 对应编辑组件的表单校验 |  `boolean`  | `true` | 否 |
 | `editComponent`        | 编辑组件 |  `ComponentsType`  | `ElInput` | 否 |
 | `editComponentProps`        | 对应编辑组件的 `props` |  `Recordable`  | `{}` | 否 |
+| `editScheduler`        | 对编辑组件的触发控制 |  `Function`  | `function (): Promise<boolean>` | 否 |
 
 **支持编辑组件**
 
