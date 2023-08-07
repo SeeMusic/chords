@@ -1,0 +1,25 @@
+.basic-table {
+  .iconify {
+    padding: 0 4px;
+    cursor: pointer;
+    &:hover {
+      color: var(--seemusic-primary);
+    }
+  }
+  .edit-cell {
+    display: flex;
+    align-items: center;
+    min-height: 18px;
+    &:hover {
+      .edit-cell__hover-icon {
+        display: block;
+      }
+    }
+    .edit-cell__icon {
+      font-size: 16px;
+    }
+    .edit-cell__hover-icon {
+      display: none;
+    }
+  }
+}

@@ -110,6 +110,8 @@ function renderSidebar() {
             { text: '信息 BasicInfo ', link: '/components/BasicInfo' },
             { text: '卡片 Card', link: '/components/Card' },
             { text: '页头 PageHeader', link: '/components/PageHeader' },
+            { text: '分页 Pagination', link: '/components/Pagination' },
+            { text: '表格 BasicTable', link: '/components/BasicTable' },
           ]
         },
         {

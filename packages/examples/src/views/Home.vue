@@ -28,7 +28,7 @@ import { ElMessage } from 'element-plus';
 
 import { navList } from '@/config';
 
-const collapse = ref(false);
+const collapse = ref(true);
 // fluent:text-expand-20-filled
 // fluent:text-collapse-20-filled
 const collapseIcon = computed(() =>

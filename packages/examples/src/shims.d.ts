@@ -33,9 +33,9 @@ declare module '@vue/runtime-dom' {
 }
 
 // 组件类型导出
-export type { HeaderOpts, SidebarOpts } from './components/SopLayoutMain/SopLayoutMain';
-export type { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';
-export type { StatusTypeEnum } from './components/SopStatus/SopStatus';
-export type { CoverTypeEnum } from './components/SopCover/SopCover';
-export type { OnOKEvent, DialogOrDrawerHeaderSlots } from './components/SopDialog/SopDialog';
+// export type { HeaderOpts, SidebarOpts } from './components/SopLayoutMain/SopLayoutMain';
+// export type { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';
+// export type { StatusTypeEnum } from './components/SopStatus/SopStatus';
+// export type { CoverTypeEnum } from './components/SopCover/SopCover';
+// export type { OnOKEvent, DialogOrDrawerHeaderSlots } from './components/SopDialog/SopDialog';
 export type { ComponentsType, TableColumn, TableConfig } from './components/SopBasicTable/src/SopBasicTable';

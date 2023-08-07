@@ -18,6 +18,7 @@
     "@seemusic/styles": "^0.0.1",
     "@seemusic/ui-components": "workspace:^",
     "@vueuse/core": "^10.3.0",
+    "dayjs": "^1.11.9",
     "element-plus": "^2.3.8",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
