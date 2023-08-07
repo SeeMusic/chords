@@ -11,3 +11,5 @@ export * from './SopTheSidebar';
 export * from './SopLayoutMain';
 export * from './SopDialog';
 export * from './SopDrawer';
+export * from './SopPagination';
+export * from './SopBasicTable';

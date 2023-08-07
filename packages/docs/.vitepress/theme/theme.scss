@@ -132,3 +132,39 @@ textarea {
 *[class*='sop-'] {
   box-sizing: content-box;
 }
+
+.el-pager {
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+.el-pager li {
+  margin-top: 0 !important;
+}
+
+.basic-table {
+  table {
+    display: block;
+    word-break: initial;
+    margin: 0;
+    tr {
+      border-top: none;
+      transition: none;
+    }
+    th {
+      color: var(--el-table-border-color);
+    }
+    th,
+    td {
+      border: none;
+    }
+  }
+}
+
+.basic-table {
+  .cell {
+    display: flex;
+    .iconify {
+      font-size: 20px;
+    }
+  }
+}

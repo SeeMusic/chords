@@ -115,6 +115,9 @@ importers:
       '@vueuse/core':
         specifier: ^10.3.0
         version: 10.3.0(vue@3.3.4)
+      dayjs:
+        specifier: ^1.11.9
+        version: 1.11.9
       element-plus:
         specifier: ^2.3.8
         version: 2.3.8(vue@3.3.4)
@@ -2911,8 +2914,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /dayjs@1.11.8:
-    resolution: {integrity: sha512-LcgxzFoWMEPO7ggRv1Y2N31hUf2R0Vj7fuy/m+Bg1K8rr+KAs1AEy4y9jd5DXe8pbHgX+srkHNS7TH6Q6ZhYeQ==}
+  /dayjs@1.11.9:
+    resolution: {integrity: sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==}
 
   /de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
@@ -3034,7 +3037,7 @@ packages:
       '@types/lodash-es': 4.17.7
       '@vueuse/core': 9.13.0(vue@3.3.4)
       async-validator: 4.2.5
-      dayjs: 1.11.8
+      dayjs: 1.11.9
       escape-html: 1.0.3
       lodash: 4.17.21
       lodash-es: 4.17.21
@@ -3058,7 +3061,7 @@ packages:
       '@types/lodash-es': 4.17.7
       '@vueuse/core': 9.13.0(vue@3.3.4)
       async-validator: 4.2.5
-      dayjs: 1.11.8
+      dayjs: 1.11.9
       escape-html: 1.0.3
       lodash: 4.17.21
       lodash-es: 4.17.21
