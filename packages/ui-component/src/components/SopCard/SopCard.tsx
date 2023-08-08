@@ -14,18 +14,21 @@ export default defineComponent({
 
     return () => (
       <div class="sop-card">
-        <div class="sop-card__hd">
-          <span class="sop-card__hd-title">
-            {props.title}
-            {slots.titleExtra?.()}
-          </span>
-          {
-            $slots.opt &&
-              <span class="sop-card__hd-opt">
-                {slots.opt?.()}
+        {
+          props.title !== '' &&
+            <div class="sop-card__hd">
+              <span class="sop-card__hd-title">
+                {props.title}
+                {slots.titleExtra?.()}
               </span>
-          }
-        </div>
+              {
+                $slots.opt &&
+                  <span class="sop-card__hd-opt">
+                    {slots.opt?.()}
+                  </span>
+              }
+            </div>
+        }
 
         <div class="sop-card__bd">
           {slots.default?.()}
