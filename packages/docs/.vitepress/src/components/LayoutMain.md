@@ -94,6 +94,8 @@ const menuList: SidebarListItem[] = [
 </style>
 ```
 
+:::
+
 ## API
 
 ### Attributes

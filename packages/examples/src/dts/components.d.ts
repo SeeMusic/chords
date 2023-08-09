@@ -11,6 +11,7 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SopBasicTable: typeof import('@seemusic/ui-components/components')['SopBasicTable']
     SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
     SopDialog: typeof import('@seemusic/ui-components/components')['SopDialog']
     SopDrawer: typeof import('@seemusic/ui-components/components')['SopDrawer']

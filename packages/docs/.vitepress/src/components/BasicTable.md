@@ -742,53 +742,54 @@ const tableData = [
 ```vue
 <template>
   <SopBasicTable
-    :columns="tableColumns" 
+    :columns="tableColumns"
     :data="tableData"
-    @edit-change="onEditChange"
+    @edit-column-change="onEditChange"
   />
 </template>
 
 <script lang="ts" setup>
 import { ElMessageBox, ElMessage } from 'element-plus';
-import type { TableConfig, TableColumn } from '@seemusic/ui-components'
+import type { Recordable } from '@/shims';
+import type { TableColumn } from '@seemusic/ui-components';
 
-const onEditChange = (scope) => {
-  ElMessage.success(`row: ${JSON.stringify(scope.row)}, $index: ${scope.$index}`)
-}
+const onEditChange = (scope: Recordable) => {
+  ElMessage.success(`row: ${JSON.stringify(scope.row)}, $index: ${scope.$index}`);
+};
 
 const tableColumns: TableColumn = [
-  { 
-    prop: 'date', 
-    label: '日期', 
-    editable: true, 
-    editColumn: true, 
-    editComponent: 'ElDatePicker' 
+  {
+    prop: 'date',
+    label: '日期',
+    editable: true,
+    editColumn: true,
+    editComponent: 'ElDatePicker'
   },
-  { 
-    prop: 'name', 
-    label: '名称', 
-    editable: true, 
-    editColumn: true, 
+  {
+    prop: 'name',
+    label: '名称',
+    editable: true,
+    editColumn: true,
     editComponent: 'ElInput',
   },
-  { 
-    prop: 'address', 
-    label: '地址', 
-    editable: true, 
-    editColumn: true, 
+  {
+    prop: 'address',
+    label: '地址',
+    editable: true,
+    editColumn: true,
     editComponent: 'ElInput',
     editScheduler: () => {
       return new Promise((resolve) => {
         ElMessageBox.alert('手动控制编辑时机', 'Title', {
           confirmButtonText: 'OK',
-          callback: (action: Action) => {
+          callback: () => {
             resolve(true);
           },
-        })
-      })
+        });
+      });
     }
   },
-]
+];
 
 const tableData = [
   {
@@ -811,13 +812,133 @@ const tableData = [
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles',
   },
-]
+];
 </script>
 ```
 :::
 
+## 编辑行
 
-## 编辑行 TODO
+:::demo
+
+```vue
+<template>
+  <SopBasicTable
+    ref="tableRef"
+    :columns="tableColumns"
+    :config="tableConfig"
+    :data="tableData"
+  >
+
+    <template #actions="scope">
+      <ElButton
+        v-if="!(scope.$index === tableRef.getEditRowIndex())"
+        size="small"
+        type="primary"
+        @click="onEditRow(scope)"
+      >
+        编辑
+      </ElButton>
+      <ElButton
+        v-else
+        size="small"
+        type="primary"
+        @click="onEditRowDone(scope)"
+      >
+        完成
+      </ElButton>
+      <ElButton size="small" @click="onCancelEditRow">取消</ElButton>
+    </template>
+  </SopBasicTable>
+</template>
+
+<script lang="ts" setup>
+import { ref, nextTick } from 'vue';
+import { ElMessage } from 'element-plus';
+import type { Recordable } from '@/shims';
+import type { TableColumn, TableConfig } from '@seemusic/ui-components';
+
+const tableRef = ref();
+const tableConfig: TableConfig = {};
+const tableColumns: TableColumn = [
+  { label: 'Date', prop: 'date' },
+  {
+    prop: 'name',
+    label: 'Name',
+    editable: true,
+    editRow: true,
+    editComponent: 'ElInput',
+    editComponentProps: {
+      size: 'small'
+    }
+  },
+  { prop: 'address', label: 'Address',editable: true,
+    editRow: true,
+    editComponent: 'ElInput',
+    editComponentProps: {
+      size: 'small'
+    } },
+  { customRender: 'actions', label: '操作' }
+];
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-08',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-06',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-07',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+];
+
+
+function onEditRow(scope: Recordable) {
+  tableRef.value.setEditRowIndex(scope.$index);
+}
+
+async function onEditRowDone(scope: Recordable) {
+  tableRef.value.setEditRowIndex(null);
+  // 内容要在异步中获取
+  nextTick(() => {
+    ElMessage.success(`row: ${JSON.stringify(scope.row)}, $index: ${scope.$index}`);
+  });
+}
+
+function onCancelEditRow() {
+  tableRef.value.setEditRowIndex(null);
+  tableRef.value.cancelEdit();
+}
+</script>
+```
+
+:::
 
 ## API
 
@@ -840,10 +961,10 @@ const tableData = [
 | `editable`        | 是否开启表格编辑	  |  `boolean`  |  | 否 |
 | `editRow`        | 是否开启编辑行	  |  `boolean`  |  | 否 |
 | `editColumn`        | 是否开启编辑列	  |  `boolean`  |  | 否 |
+| `editColumnScheduler`        | 对编辑组件的触发控制 |  `Function`  | `function (): Promise<boolean>` | 否 |
 | `editRule`        | 对应编辑组件的表单校验 |  `boolean`  | `true` | 否 |
 | `editComponent`        | 编辑组件 |  `ComponentsType`  | `ElInput` | 否 |
 | `editComponentProps`        | 对应编辑组件的 `props` |  `Recordable`  | `{}` | 否 |
-| `editScheduler`        | 对编辑组件的触发控制 |  `Function`  | `function (): Promise<boolean>` | 否 |
 
 **支持编辑组件**
 
@@ -879,8 +1000,17 @@ export type ComponentsType = 'ElInput' |
 
 | 名称           |      说明     |  类型 |
 | ------------- | :-----------: | :-----------: | 
-| `edit-change` | `table cell` 编辑完成后触发    | `function (scope): void` |
+| `edit-column-change` | `table cell` 编辑完成后触发    | `function (scope): void` |
 | `current-change` | 当前页面更改时触发   | `function (pageNum: number): void` |
+
+### Methods
+
+| 名称           |      说明     |  参数 |
+| ------------- | :-----------: | :-----------: | 
+| `tableRef` | `tableRef.xxx` 支持 `ElTable` 的所有方法    |  |
+| `setEditRowIndex` | 设置 `index` 编辑行时使用   | `number | null` |
+| `getEditRowIndex` | 获取当前正在被编辑的行   | |
+| `cancelEdit` | 退出编辑行模式   |  |
 
 ### Slots
 
