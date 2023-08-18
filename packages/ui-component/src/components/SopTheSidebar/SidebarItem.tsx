@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, computed, type PropType } from 'vue';
+import { defineComponent, nextTick, ref, computed, type PropType } from 'vue';
 import { ElMenuItem, ElSubMenu, type MenuItemClicked } from 'element-plus';
 import { setMenuIndex, type SidebarListItem } from './SopTheSidebar';
 import { useCustomRouter } from '../../composables/customRouter';
