@@ -13,6 +13,7 @@ export interface SidebarListItem {
   path?: string
   // 是否禁用
   disabled?: boolean
+  activePath?: string
   /** 子菜单 */
   subMenu?: SidebarSubListItem[]
 }
@@ -27,7 +28,7 @@ export const navList: SidebarListItem[] =
       subMenu: [
         {
           title: 'Example',
-          path: '/examples'
+          path: '/examples',
         },
       ]
     },

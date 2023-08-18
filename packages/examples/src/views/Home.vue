@@ -1,5 +1,5 @@
 <template>
-  <SopLayoutMain
+  <!-- <SopLayoutMain
     v-model:collapse="collapse"
     :headerOpts="{
       logo: 'https://pics.kanjian.com/favicon/kanjian-logo-blue@2x.png',
@@ -18,17 +18,25 @@
     <template #main>
       <RouterView />
     </template>
-  </SopLayoutMain>
+  </SopLayoutMain> -->
+
+
+
+  <div style="display: flex;">
+    <SopTheSidebar v-model:collapse="collapse" :menu-list="navList" :collapse-icon="collapseIcon" />
+    <RouterView />
+  </div>
 </template>
 
 <script setup lang="ts">
+import { SopTheSidebar } from '../components/SopTheSidebar';
 import { ref, h, watch, computed } from 'vue';
 import { Icon } from '@iconify/vue';
-import { ElMessage } from 'element-plus';
+// import { ElMessage } from 'element-plus';
 
 import { navList } from '@/config';
 
-const collapse = ref(true);
+const collapse = ref(false);
 // fluent:text-expand-20-filled
 // fluent:text-collapse-20-filled
 const collapseIcon = computed(() =>

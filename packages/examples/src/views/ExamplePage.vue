@@ -1,5 +1,8 @@
 <template>
   <div>
+    <ElButton type="primary" @click="$router.push('/example-table')">go to example table</ElButton>
+    <ElButton type="primary" @click="$router.push('/example-table/child')">go to example table child</ElButton>
+    <ElButton type="primary" @click="$router.push('/examples/child')">go to example child</ElButton>
     <SopCard>
       <ElButton @click="dialogVisible_1 = true">无 footer dialog</ElButton>
       <SopDialog

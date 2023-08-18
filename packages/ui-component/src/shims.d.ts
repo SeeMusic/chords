@@ -38,4 +38,4 @@ export type { SidebarListItem } from './components/SopTheSidebar/SopTheSidebar';
 export type { StatusTypeEnum } from './components/SopStatus/SopStatus';
 export type { CoverTypeEnum } from './components/SopCover/SopCover';
 export type { OnOKEvent, DialogOrDrawerHeaderSlots } from './components/SopDialog/SopDialog';
-export type { ComponentsType, TableColumn, TableConfig } from './components/SopBasicTable/src/SopBasicTable';
+export type { ComponentsType, TableColumn, TableConfig } from './components/SopBasicTable/SopBasicTable';
