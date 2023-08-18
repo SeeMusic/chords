@@ -778,7 +778,7 @@ const tableColumns: TableColumn = [
     editable: true,
     editColumn: true,
     editComponent: 'ElInput',
-    editScheduler: () => {
+    editColumnScheduler: () => {
       return new Promise((resolve) => {
         ElMessageBox.alert('手动控制编辑时机', 'Title', {
           confirmButtonText: 'OK',

@@ -63,35 +63,26 @@ export default defineComponent({
     const isShowCollapseContainer = computed(() => props.collapseIcon && isVNode(props.collapseIcon));
 
     // fix: 页面内点击跳转后，菜单高亮无法跟随变动
+    /**
+     * TODO: 不在 MenuList 内的路由跟随高亮待优化
+     * routes
+     *
+     * [
+     *    { path: '/example' },
+     *    /example/child 是否需要 /example 进行高亮显示
+     *    { path: '/example/child }
+     * ]
+     *
+     * menuList
+     * [
+     *    { title: '示例', path: '/example' }
+     * ]
+     */
     watch(
       () => route.value,
       () => {
-        if (route.value) {
-          /**
-           * bug: 跳转到 /examples/child 时, /examples 对应的菜单高亮效果丢失。
-           * routes
-           * [
-           *    { path: '/example' },
-           *    /example/child 是否需要 /example 进行高亮显示
-           *    { path: '/example/child }
-           * ]
-           *
-           * menuList
-           * [
-           *    { title: '示例', path: '/example' }
-           * ]
-           *
-           * 如果 VueRouter 的 routes 中配置了 meta.active 就以这个字段为准，如果没有就使用 path
-           * TODO: 硬编码的方式解决以上问题, 期待更合适的解决方案。。。
-           */
-          if (route.value.meta && route.value.meta.active) {
-            const active = route.value.meta.active as string;
-            defaultActive.value = active;
-          } else {
-            if (route.value.path) {
-              defaultActive.value = route.value.path;
-            }
-          }
+        if (route.value && route.value.path) {
+          defaultActive.value = route.value.path;
         }
       },
       { deep: true, immediate: true }

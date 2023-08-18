@@ -1,0 +1,99 @@
+ // menu item 的统一样式
+ @mixin menu-item-style {
+  .el-sub-menu__title,
+  .el-menu-item {
+    height: 50px;
+    font-size: 14px;
+    color: #000000a6;
+    line-height: 22px;
+    &:hover {
+      background-color: rgba(0, 64, 255, .08) !important;
+    }
+  }
+  .el-menu-item {
+    height: 44px;
+    &.is-active {
+      position: relative;
+      color: var(--seemusic-primary) !important;
+      background-color: rgba(0, 64, 255, .08) !important;
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2px;
+        background-color: var(--seemusic-primary);
+      }
+    }
+  }
+}
+
+.app-aside {
+  --aside-bg-color: #FFF;
+  --aside-border-color: #DDD;
+
+  position: relative;
+  box-sizing: border-box;
+  background-color: var(--aside-bg-color);
+  border: 1px solid var(--aside-border-color);
+  // fix 去除原有 menu 的折叠动画，在 side 上面加动画
+  transition: var(--el-transition-duration) width ease-out;
+
+  &.aside-collapse {
+    width: 64px;
+  }
+
+  .el-scrollbar__bar {
+    &.is-vertical,
+    &.is-horizontal {
+      opacity: 0;
+    }
+  }
+
+  .el-menu {
+    border-right: none;
+    &.el-menu--vertical {
+      padding-top: 16px;
+      padding: 16px 0 0 0;
+    }
+    &.collapse-menu {
+      &.el-menu--vertical {
+        padding: 16px 0 60px 0;
+      }
+    }
+    @include menu-item-style;
+
+    .menu-icon {
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
+      font-size: 16px;
+    }
+  }
+
+  // icon-container
+  .collapse-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background-color: var(--aside-bg-color);
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: 2px 48px 60px rgba(0, 0, 0, 0.7);
+    div {
+      display: inline-block;
+      padding: 0 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.sub-menu__popper {
+  @include menu-item-style;
+}
