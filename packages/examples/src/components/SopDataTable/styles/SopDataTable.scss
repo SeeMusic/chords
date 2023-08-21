@@ -1,0 +1,13 @@
+.sop-data-table__title {
+  margin-bottom: 12px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--seemusic-text-normal);
+}
+
+.sop-data-table__content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

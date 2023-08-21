@@ -1,5 +1,5 @@
 <template>
-  <!-- <SopLayoutMain
+  <SopLayoutMain
     v-model:collapse="collapse"
     :headerOpts="{
       logo: 'https://pics.kanjian.com/favicon/kanjian-logo-blue@2x.png',
@@ -9,7 +9,7 @@
       menuList: navList,
       collapseIcon
     }"
-    @logo-click="ElMessage.success('logo clicked')"
+    @logo-click="$message.success('logo clicked')"
   >
     <template #headerRightOpt>
       右侧内容区域
@@ -18,18 +18,17 @@
     <template #main>
       <RouterView />
     </template>
-  </SopLayoutMain> -->
+  </SopLayoutMain>
 
 
 
-  <div style="display: flex;">
+  <!-- <div style="display: flex;">
     <SopTheSidebar v-model:collapse="collapse" :menu-list="navList" :collapse-icon="collapseIcon" />
     <RouterView />
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
-import { SopTheSidebar } from '../components/SopTheSidebar';
 import { ref, h, watch, computed } from 'vue';
 import { Icon } from '@iconify/vue';
 // import { ElMessage } from 'element-plus';

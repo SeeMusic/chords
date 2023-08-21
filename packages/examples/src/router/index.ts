@@ -33,6 +33,11 @@ const router = createRouter({
           name: 'example-table-child',
           component: ComponentTesting
         },
+        {
+          path: 'testing',
+          name: 'Testing',
+          component: ComponentTesting
+        }
       ]
     },
   ]
