@@ -68,7 +68,7 @@ export default defineComponent({
           {slots.default?.()}
           {
             needFillPlaceholder.value &&
-            new Array(placeholderCount.value).map((i: number) => (
+            new Array(placeholderCount.value).fill(0).map((i: number) => (
               <div key={i} class="sop-data-table-item sop-data-table-item--no-border"></div>
             ))
           }
