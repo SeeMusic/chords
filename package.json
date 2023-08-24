@@ -6,6 +6,7 @@
     "prepare": "husky install",
 
     "dev": "pnpm --filter @seemusic/ui-components run build:dev",
+    "test": "pnpm --filter @seemusic/ui-components run test",
     "build": "pnpm --filter @seemusic/ui-components run build",
     "release:npm": "cd ./packages/ui-component/ && pnpm publish",
 

@@ -1,4 +1,4 @@
-import { defineComponent, ref, type PropType, type VNode, watch, Ref } from 'vue';
+import { defineComponent, ref, type PropType, type VNode, watch } from 'vue';
 import { ElContainer, ElHeader, ElMain } from 'element-plus';
 import { SopTheHeader } from '../index';
 import { SopTheSidebar } from '../index';

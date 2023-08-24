@@ -16,57 +16,57 @@ const _mount = (template: string, options = {}) =>
   });
 
 const sidebar = _mount(
-  `<SopTheSidebar 
+  `<SopTheSidebar
     v-model:collapse="collapse"
-    :menu-list="menuList" 
+    :menu-list="menuList"
     :collapse-icon="collapseIcon"
   />`, {
-    data() {
-      return {
-        collapse: false,
-        collapseIcon: h('span', '收起'),
-        menuList: [
-          {
-            title: 'DSP管理',
-            path: '/dsp/customer'
-          },
-          {
-            title: 'menu禁用测试',
-            disabled: true,
-            subMenu: [
-              {
-                title: '合同列表',
-                path: '/contract/'
-              }
-            ]
-          },
-          {
-            title: '曲库管理',
-            subMenu: [
-              {
-                title: 'submenu禁用测试',
-                path: '/musicverse/track',
-                disabled: true
-              },
-              {
-                title: '外链测试',
-                path: 'https://musichub.kanjian.com'
-              },
-              {
-                title: '三级菜单',
-                subMenu: [
-                  {
-                    title: '三级菜单1',
-                    path: '/thirdMenu',
-                  }
-                ]
-              }
-            ]
-          },
-        ]
-      };
-    }
+  data() {
+    return {
+      collapse: false,
+      collapseIcon: h('span', '收起'),
+      menuList: [
+        {
+          title: 'DSP管理',
+          path: '/dsp/customer'
+        },
+        {
+          title: 'menu禁用测试',
+          disabled: true,
+          subMenu: [
+            {
+              title: '合同列表',
+              path: '/contract/'
+            }
+          ]
+        },
+        {
+          title: '曲库管理',
+          subMenu: [
+            {
+              title: 'submenu禁用测试',
+              path: '/musicverse/track',
+              disabled: true
+            },
+            {
+              title: '外链测试',
+              path: 'https://musichub.kanjian.com'
+            },
+            {
+              title: '三级菜单',
+              subMenu: [
+                {
+                  title: '三级菜单1',
+                  path: '/thirdMenu',
+                }
+              ]
+            }
+          ]
+        },
+      ]
+    };
   }
+}
 );
 
 describe('menu', () => {
@@ -91,7 +91,7 @@ describe('sub-menu', () => {
   it('sub-menu-item disabled', () => {
     const thirdMenu = sidebar.findAll('.el-sub-menu')?.at(1);
     expect(thirdMenu?.findAll('.el-menu-item')?.at(0)?.classes()).toContain('is-disabled');
-    
+
   });
 });
 
@@ -105,7 +105,7 @@ describe('sub-menu', () => {
 //   });
 //   const _sidebar = mount(
 //     { template: `<SopTheSidebar
-//     :menu-list="menuList" 
+//     :menu-list="menuList"
 //   />` }, {
 //       components: {
 //         SopTheSidebar
