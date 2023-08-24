@@ -1,8 +1,18 @@
 .app-layout-main {
   width: 100%;
   min-height: 100vh;
-  .el-aside {
-    border-top: none !important;
+  .app-layout-sidebar {
+    position: relative;
+    flex: none;
+    height: 100vh;
+    transition: var(--el-transition-duration) width ease-out;
+
+    .el-aside {
+      border-top: none !important;
+      position: fixed;
+      top: 64px;
+      height: calc(100vh - 64px);
+    }
   }
 
   .el-header {
