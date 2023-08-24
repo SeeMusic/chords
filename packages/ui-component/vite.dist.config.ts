@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -47,6 +48,9 @@ export default defineConfig(({ mode }) => {
     define: {
       __UI_NAME__: JSON.stringify(pkg.name),
       __UI_VERSION__: JSON.stringify(pkg.version)
+    },
+    test: {
+      environment: 'happy-dom'
     }
   };
 });
