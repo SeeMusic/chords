@@ -1,7 +1,7 @@
 {
   "name": "@seemusic/ui-components",
   "private": false,
-  "version": "0.0.7-alpha.4",
+  "version": "0.0.7-alpha.7",
   "description": "A Vue 3 UI Library. Uses Composable.",
   "keywords": [
     "ui-components",
@@ -10,6 +10,11 @@
     "sop",
     "kanjian music"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeeMusic/chords"
+  },
+  "homepage": "https://chords-ui.seemusic.xyz/",
   "license": "MIT",
   "author": "xsq",
   "scripts": {

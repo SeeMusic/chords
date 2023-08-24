@@ -1,4 +1,7 @@
 <template>
+  <ElButton type="primary" @click="$router.push('/examples')">go to examples</ElButton>
+  <ElButton type="primary" @click="$router.push('/example-table/child')">go to example table child</ElButton>
+    <ElButton type="primary" @click="$router.push('/examples/child')">go to example child</ElButton>
   <SopBasicTable
     ref="tableRef"
     :columns="tableColumns"
@@ -36,8 +39,11 @@ import { SopBasicTable } from '../components/SopBasicTable';
 import type { TableColumn, TableConfig } from '@seemusic/ui-components';
 
 const tableRef = ref();
-const tableConfig: TableConfig = {};
-const tableColumns: TableColumn = [
+const tableConfig: TableConfig = {
+  isPagination: true,
+  pagination: {}
+};
+const tableColumns: TableColumn[] = [
   { label: 'Date', prop: 'date' },
   {
     prop: 'name',
