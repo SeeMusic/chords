@@ -1,7 +1,7 @@
 {
   "name": "@seemusic/ui-components",
   "private": false,
-  "version": "0.0.7-alpha.8",
+  "version": "0.0.7-rc.1",
   "description": "A Vue 3 UI Library. Uses Composable.",
   "keywords": [
     "ui-components",
@@ -23,7 +23,8 @@
     "build:dev": "vite build -w -c vite.lib.config.ts",
     "build": "pnpm run build:lib && pnpm run build:dist",
     "test": "vitest -c vite.dist.config.ts",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage -c vite.dist.config.ts",
+    "test:ui": "vitest -c vite.dist.config.ts --ui"
   },
   "files": [
     "lib",
@@ -76,9 +77,10 @@
     "@types/mkdirp": "^1.0.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "element-plus": "2.3.6",
     "@vitest/coverage-v8": "^0.34.1",
+    "@vitest/ui": "^0.34.3",
     "@vue/test-utils": "^2.4.1",
+    "element-plus": "2.3.6",
     "happy-dom": "^10.9.0",
     "magic-string": "^0.27.0",
     "mkdirp": "^1.0.4",

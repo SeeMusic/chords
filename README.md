@@ -109,3 +109,33 @@ export default defineConfig({
   }
 }
 ```
+
+## 高级
+
+如果你想使用 `SopStatus` 、 `SopFilterForm` 、 `SopDataTable`、`SopDataTableItem`、`SopCover`、`SopBasicInfo`、`SopCard`、`SopPageHeader` 之外的组件，需要做以下修改。
+
+::: code-group
+
+```ts [main.ts]
+import './assets/css/basic.scss';
+import 'element-plus/dist/index.css';
+```
+
+```ts [vite.config.ts]
+export default defineConfig({
+  // ...
+  plugins: [
+    Components: {
+      // ElementPlusResolver({
+      //   importStyle: 'sass'
+      // }),
+      // 不再使用插件自动导入组件样式的功能
+      ElementPlusResolver(),
+      // ....
+    }
+    // ....
+  ]
+  // ....
+})
+```
+:::
