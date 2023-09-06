@@ -50,7 +50,10 @@ export default defineConfig(({ mode }) => {
       __UI_VERSION__: JSON.stringify(pkg.version)
     },
     test: {
-      environment: 'happy-dom'
+      environment: 'happy-dom',
+      server: {
+        sourcemap: true
+      }
     }
   };
 });
