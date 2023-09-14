@@ -9,6 +9,7 @@
     :page-size="pagination.pageSize"
     :total="pagination.total"
     @current-change="currentChange"
+    @size-change="sizeChange"
   />
 </template>
 
@@ -23,6 +24,10 @@ const pagination = reactive({
 
 function currentChange(pageNum: number) {
   pagination.currentPage = pageNum;
+}
+
+function sizeChange(sizeNum: number) {
+  pagination.pageSize = pageNum;
 }
 </script>
 ```
@@ -70,6 +75,13 @@ function currentChange(pageNum: number) {
 | `page-size`        | 每页显示条目个数  |  `number`  | 无 | 否 |
 | `total`        | 总条目数	  |  `number`  | 无 | 否 |
 | `current-page`        | 当前页数	  |  `number`  | 无 | 否 |
+
+### Events
+
+| 名称           |      说明     |  类型 |  默认值  |  必填  |
+| ------------- | :-----------: | :-----------: | :-----------: | :-----------: |
+| `current-page`        | 当前页数	  |  `number`  | 无 | 否 |
+| `size-change`        | 当前页显示条数	  |  `number`  | 无 | 否 |
 
 ### Slots
 

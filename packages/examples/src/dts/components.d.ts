@@ -13,11 +13,18 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SopBasicTable: typeof import('@seemusic/ui-components/components')['SopBasicTable']
     SopCard: typeof import('@seemusic/ui-components/components')['SopCard']
+    SopDataTable: typeof import('@seemusic/ui-components/components')['SopDataTable']
+    SopDataTableItem: typeof import('@seemusic/ui-components/components')['SopDataTableItem']
     SopDialog: typeof import('@seemusic/ui-components/components')['SopDialog']
     SopDrawer: typeof import('@seemusic/ui-components/components')['SopDrawer']
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
+    SopPageHeader: typeof import('@seemusic/ui-components/components')['SopPageHeader']
+    SopStatus: typeof import('@seemusic/ui-components/components')['SopStatus']
     SopTheHeader: typeof import('@seemusic/ui-components/components')['SopTheHeader']
     SopThes: typeof import('@seemusic/ui-components/components')['SopThes']
     SopTheSidebar: typeof import('@seemusic/ui-components/components')['SopTheSidebar']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

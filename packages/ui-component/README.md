@@ -19,9 +19,7 @@ pnpm install @seemusic/element-plus-theme-sop @seemusic/styles
 -  `src/assets` 新建 `css/theme.scss`。
 -  `vite.config.ts` 中增加相应配置。
 
-::: code-group
-
-```scss [theme.scss]
+```scss 
 @import "@seemusic/styles/src/colors/seemusic.scss";
 @import "@seemusic/element-plus-theme-sop";
 ```
@@ -42,7 +40,6 @@ export default defineConfig({
   // ...
 });
 ```
-:::
 
 ### 全量导入组件
 
@@ -117,14 +114,16 @@ export default defineConfig({
 
 如果你想使用 `SopStatus` 、 `SopFilterForm` 、 `SopDataTable`、`SopDataTableItem`、`SopCover`、`SopBasicInfo`、`SopCard`、`SopPageHeader` 之外的组件，需要做以下修改。
 
-::: code-group
+`main.ts` 中引入 `element-plus` 的样式文件
 
-```ts [main.ts]
+```ts
 import './assets/css/basic.scss';
 import 'element-plus/dist/index.css';
 ```
 
-```ts [vite.config.ts]
+修改 `vite.config.ts` 中的 `element-plus` 自动导入配置
+
+```ts
 export default defineConfig({
   // ...
   plugins: [
@@ -141,4 +140,3 @@ export default defineConfig({
   // ....
 })
 ```
-:::

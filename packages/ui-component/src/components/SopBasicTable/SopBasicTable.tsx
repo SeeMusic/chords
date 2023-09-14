@@ -71,7 +71,7 @@ export default defineComponent({
       }
     }
   },
-  emits: ['edit-column-change', 'current-change'],
+  emits: ['edit-column-change', 'current-change', 'size-change'],
   setup(props, { attrs, slots, emit, expose }) {
     const tableRef = ref<InstanceType<typeof ElTable> | null>(null);
     const editRowIndex = ref<number | null>(null);
@@ -241,7 +241,7 @@ export default defineComponent({
       cancelEdit,
     });
     return () => (
-      <>
+      <div class="basic-table">
         <ElTable
           ref={tableRef}
           class='basic-table'
@@ -263,9 +263,10 @@ export default defineComponent({
             && <SopPagination
               {...props.config.pagination}
               onCurrent-change={(pageNum: number) => emit('current-change', pageNum)}
+              onSize-change={(sizeNum: number) => emit('size-change', sizeNum)}
             />
         }
-      </>
+      </div>
     );
   }
 });
