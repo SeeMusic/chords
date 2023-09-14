@@ -1,5 +1,5 @@
-import { PropType, defineComponent, withModifiers, useSlots, getCurrentInstance } from 'vue';
-import { type RouteLocationRaw, RouterLink, Router } from 'vue-router';
+import { defineComponent, withModifiers, useSlots, getCurrentInstance } from 'vue';
+import { RouterLink, Router } from 'vue-router';
 
 export default defineComponent({
   name: 'SopPageHeader',
@@ -12,7 +12,7 @@ export default defineComponent({
       default: ''
     },
     back: {
-      type: [Object, Number] as PropType<RouteLocationRaw | number>,
+      type: [Object, Number],
       default: 0
     }
   },

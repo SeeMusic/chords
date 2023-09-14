@@ -673,6 +673,7 @@ const tableData = [
     :config="tableConfig"
     :data="tableData"
     @current-change="currentChange"
+    @size-change="sizeChange"
   />
 </template>
 
@@ -692,6 +693,10 @@ const tableConfig: TableConfig = {
 
 const currentChange = (pageNum: number) => {
   tableConfig.pagination.currentPage = pageNum;
+}
+
+function sizeChange(sizeNum: number) {
+  pagination.pageSize = pageNum;
 }
 
 const tableColumns: TableColumn = [

@@ -33,16 +33,140 @@
         title="Drawer"
       ></SopDrawer>
     </SopCard>
+
+    <SopPageHeader
+      title="PageHeader"
+      :back="{}"
+    ></SopPageHeader>
+
+    <SopCard>
+      <SopBasicTable
+        v-loading="true"
+        :columns="tableColumns"
+        :config="tableConfig"
+        :data="tableData"
+        @size-change="onSizeChange"
+        @current-change="currentChange"
+      />
+    </SopCard>
+
+    <SopCard>
+      <SopDataTable :cols="4">
+        <template v-for="item in 16" :key="item">
+          <SopDataTableItem v-if="item % 2 === 0" :label="`名称-${item}`">内容{{item}}</SopDataTableItem>
+        </template>
+        <SopDataTableItem v-if="dialogVisible_1" label="名称">内容5</SopDataTableItem>
+        <SopDataTableItem v-else label="名称">内容6</SopDataTableItem>
+        <template v-if="dialogVisible_1">
+          <SopDataTableItem label="名称">内容7</SopDataTableItem>
+        </template>
+        <template v-else>
+          <SopDataTableItem label="名称">
+            <SopStatus
+              :type="dialogVisible_1 ? 'success' : 'info'"
+              :text="dialogVisible_1 ? '是' : '否'"
+            />
+            8
+          </SopDataTableItem>
+        </template>
+      </SopDataTable>
+    </SopCard>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import type { Recordable } from '@/shims';
+import type { TableColumn, TableConfig } from '@seemusic/ui-components';
+import { ref, reactive } from 'vue';
 
 const dialogVisible_1 = ref(false);
 const dialogVisible_2 = ref(false);
 const drawerVisible_1 = ref(false);
 const drawerVisible_2 = ref(false);
+
+const tableConfig = ref<TableConfig>({
+  isPagination: true,
+  pagination: {
+    pageSize: 10,
+    currentPage: 1,
+    total: 10000
+  }
+});
+
+const currentChange = (pageNum: number) => {
+  tableConfig.value.pagination!.currentPage = pageNum;
+};
+
+const onSizeChange = (size: number) => {
+  tableConfig.value.pagination.pageSize = size;
+};
+
+const tableColumns: TableColumn[] = [
+  {
+    prop: 'date',
+    label: '日期',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'name',
+    label: '名称',
+    width: '200px'
+  },
+  {
+    prop: 'address',
+    label: '地址',
+    fixed: 'right',
+    width: '200px'
+  },
+];
+
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+];
 </script>
 
 <style lang="scss">
