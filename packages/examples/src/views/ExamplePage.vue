@@ -41,13 +41,17 @@
 
     <SopCard>
       <SopBasicTable
-        v-loading="true"
+        v-loading="false"
         :columns="tableColumns"
         :config="tableConfig"
         :data="tableData"
         @size-change="onSizeChange"
         @current-change="currentChange"
-      />
+      >
+        <template #date>
+          hello vue
+        </template>
+      </SopBasicTable>
     </SopCard>
 
     <SopCard>
@@ -75,9 +79,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Recordable } from '@/shims';
 import type { TableColumn, TableConfig } from '@seemusic/ui-components';
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 const dialogVisible_1 = ref(false);
 const dialogVisible_2 = ref(false);
@@ -104,66 +107,42 @@ const onSizeChange = (size: number) => {
 const tableColumns: TableColumn[] = [
   {
     prop: 'date',
+    customRender: 'date',
     label: '日期',
-    width: '200px'
+    formatter: () => 'hello world'
   },
   {
     prop: 'name',
     label: '名称',
-    width: '200px'
-  },
-  {
-    prop: 'name',
-    label: '名称',
-    width: '200px'
-  },
-  {
-    prop: 'name',
-    label: '名称',
-    width: '200px'
-  },
-  {
-    prop: 'name',
-    label: '名称',
-    width: '200px'
-  },
-  {
-    prop: 'name',
-    label: '名称',
-    width: '200px'
-  },
-  {
-    prop: 'name',
-    label: '名称',
-    width: '200px'
+    // placeholder: 'xxxxx'
+    // formatter: () => '////'
   },
   {
     prop: 'address',
     label: '地址',
     fixed: 'right',
-    width: '200px'
   },
 ];
 
 const tableData = [
   {
     date: '2016-05-03',
-    name: 'Tom',
+    name: '',
     address: 'No. 189, Grove St, Los Angeles',
   },
   {
     date: '2016-05-02',
-    name: 'Tom',
+    name: 'aaaaa',
     address: 'No. 189, Grove St, Los Angeles',
   },
   {
     date: '2016-05-04',
-    name: 'Tom',
+    name: 'bbbbb',
     address: 'No. 189, Grove St, Los Angeles',
   },
   {
     date: '2016-05-01',
-    name: 'Tom',
+    name: 'ccccc',
     address: 'No. 189, Grove St, Los Angeles',
   },
 ];

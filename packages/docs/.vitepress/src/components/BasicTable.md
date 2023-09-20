@@ -960,6 +960,9 @@ function onCancelEditRow() {
 
 | 名称           |      说明     |  类型 |  默认值  |  必填  |
 | ------------- | :-----------: | :-----------: | :-----------: | :-----------: |
+| `$attrs`|  支持 `ElTableColumn` 的所有属性  |  | 否 |
+| `formatter`|  非 `slot` 时对内容进行格式化，优先级低于 `slot`  |  | 否 |
+| `placeholder`|  当该单元格值为空时显示的值，默认为 `-`  |  | 否 |
 | `customRender`| `custom` 值等于 `render` 时传入 `render` 生效，否则它的值就被视为 `slot`  | `string`   |  | 否 |
 | `render`        | `custom` 值等于 `render` 时的函数  | `Function` | 否 |
 | `type`        |  索引，勾选，展开表格时使用	  | `string` <MoreTip content="'index','selection','expand'" />  |  | 否 |

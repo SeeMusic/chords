@@ -24,9 +24,15 @@ export interface TableColumn extends Omit<Column, 'width'> {
   customRender?: string
   // custom 值等于 render 时传入 render 生效，否则它的值就被视为 slot
   render?: (scope: Recordable) => VNode
+  // 表头的名称
   label?: string
+  // cell 的类型
   type?: 'index' | 'selection' | 'expand'
+  // cell 的宽度
   width?: string | number
+  // 当 prop 对应的值为空时，则显示此内容
+  placeholder?: string
+
   // 表格编辑开关
   editable?: boolean
   // 编辑行
@@ -193,6 +199,12 @@ export default defineComponent({
      * 根据不同情况处理 tableColumn
      */
     function renderColumn(column: TableColumn) {
+      if (!Object.keys(column).includes('formatter')) {
+        column['formatter'] = (row: Recordable, _: TableColumn, cellValue: any) => {
+          return cellValue ? cellValue : (column.placeholder || '-');
+        };
+      }
+
       switch(column.type) {
         case 'index':
         case 'selection':
