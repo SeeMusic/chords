@@ -12,7 +12,7 @@ export default defineComponent({
       default: ''
     },
     back: {
-      type: [Object, Number],
+      type: [Object, Number, String, Function],
       default: 0
     }
   },
@@ -21,21 +21,38 @@ export default defineComponent({
 
     const $slots = useSlots();
     const $router = instance?.proxy?.$router as Router;
+    const validatorDataType = (val: any) => Object.prototype.toString.call(val);
 
     function routeJumpWay() {
-      if (typeof props.back === 'number') {
-        return <a
-          href="#"
-          onClick={withModifiers(() => {
-            $router.go(props.back as unknown as number);
-          }, ['prevent'])}
-        >
-          <i class="sop-icon sop-icon--arrow-down" />返回
-        </a>;
-      } else {
-        return <RouterLink to={props.back}>
+      switch(validatorDataType(props.back)) {
+        case 'Number':
+          return <a
+            href="#"
+            onClick={withModifiers(() => {
+              $router.go(props.back as number);
+            }, ['prevent'])}
+          >
+            <i class="sop-icon sop-icon--arrow-down" />返回
+          </a>;
+        case 'String':
+          return <RouterLink to={{ path: props.back as string }}>
           <i class="sop-icon sop-icon--arrow-down" />返回
         </RouterLink>;
+        case 'Object':
+          return <RouterLink to={props.back as Record<string, string>}>
+          <i class="sop-icon sop-icon--arrow-down" />返回
+        </RouterLink>;
+        case 'Function':
+          return <a
+            href="#"
+            onClick={(e) => {
+              (props.back as () => void)();
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            <i class="sop-icon sop-icon--arrow-down" />返回
+          </a>;
       }
     }
     return () => (

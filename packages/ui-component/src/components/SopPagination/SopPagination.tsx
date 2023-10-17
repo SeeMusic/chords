@@ -29,7 +29,7 @@ export default defineComponent({
         };
       }
       return {
-        default: () => <span class="el-pagination__text"> 共 {total.value} 条，仅显示前 500 页结果</span>
+        default: () => <span class="el-pagination__text">共 {total.value} 条</span>
       };
     }
 

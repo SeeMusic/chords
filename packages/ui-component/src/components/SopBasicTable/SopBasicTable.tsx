@@ -6,8 +6,9 @@ import EditTableCell from './EditTableCell.vue';
 import { SopPagination } from '../SopPagination';
 import { extend } from '../../utils';
 import type { PropType, VNode } from 'vue';
-import type { Column } from 'element-plus';
+import type { Column, PaginationProps } from 'element-plus';
 import type { Recordable } from '../../shims';
+
 
 export type ComponentsType = 'ElInput' |
   'ElInputNumber' |
@@ -49,11 +50,7 @@ export interface TableColumn extends Omit<Column, 'width'> {
 export interface TableConfig {
   // 是否开启分页
   isPagination?: boolean
-  pagination: {
-    currentPage?: number
-    pageSize?: number
-    total?: number
-  }
+  pagination: Partial<PaginationProps>
 }
 
 export default defineComponent({
@@ -146,7 +143,7 @@ export default defineComponent({
                       scope={scope}
                       isCancelEditRow={isCancelEditRow.value}
                       isOpenEdit={scope.$index === editRowIndex.value}
-                      onEdit-column-change={(val) => onEditChange(val, scope, column)}
+                      onEdit-column-change={(val: any) => onEditChange(val, scope, column)}
                       onCancel-edit-row-state-change={() => isCancelEditRow.value = false}
                     />
                   );
