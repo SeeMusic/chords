@@ -1,4 +1,6 @@
 <template>
+  <SopPageHeader title="title" back="1" />
+
   <ElButton type="primary" @click="$router.push('/examples')">go to examples</ElButton>
   <ElButton type="primary" @click="$router.push('/example-table/child')">go to example table child</ElButton>
     <ElButton type="primary" @click="$router.push('/examples/child')">go to example child</ElButton>

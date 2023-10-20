@@ -21,27 +21,27 @@ export default defineComponent({
 
     const $slots = useSlots();
     const $router = instance?.proxy?.$router as Router;
-    const validatorDataType = (val: any) => Object.prototype.toString.call(val);
+    const validatorDataType = (val: any) => Object.prototype.toString.call(val).slice(8, -1);
 
     function routeJumpWay() {
       switch(validatorDataType(props.back)) {
         case 'Number':
           return <a
-            href="#"
-            onClick={withModifiers(() => {
-              $router.go(props.back as number);
-            }, ['prevent'])}
-          >
-            <i class="sop-icon sop-icon--arrow-down" />返回
-          </a>;
+              href="#"
+              onClick={withModifiers(() => {
+                $router.go(props.back as number);
+              }, ['prevent'])}
+            >
+              <i class="sop-icon sop-icon--arrow-down" />返回
+            </a>;
         case 'String':
           return <RouterLink to={{ path: props.back as string }}>
-          <i class="sop-icon sop-icon--arrow-down" />返回
-        </RouterLink>;
+            <i class="sop-icon sop-icon--arrow-down" />返回
+          </RouterLink>;
         case 'Object':
           return <RouterLink to={props.back as Record<string, string>}>
-          <i class="sop-icon sop-icon--arrow-down" />返回
-        </RouterLink>;
+            <i class="sop-icon sop-icon--arrow-down" />返回
+          </RouterLink>;
         case 'Function':
           return <a
             href="#"

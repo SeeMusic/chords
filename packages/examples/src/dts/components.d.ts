@@ -18,6 +18,7 @@ declare module 'vue' {
     SopDialog: typeof import('@seemusic/ui-components/components')['SopDialog']
     SopDrawer: typeof import('@seemusic/ui-components/components')['SopDrawer']
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
+    SopPa: typeof import('@seemusic/ui-components/components')['SopPa']
     SopPageHeader: typeof import('@seemusic/ui-components/components')['SopPageHeader']
     SopStatus: typeof import('@seemusic/ui-components/components')['SopStatus']
     SopTheHeader: typeof import('@seemusic/ui-components/components')['SopTheHeader']
