@@ -1,5 +1,6 @@
 import { defineComponent, ref, withModifiers, onMounted, onBeforeMount } from 'vue';
 import { ElForm } from 'element-plus';
+import { useLocale } from '../../composables/useLocale';
 
 export default defineComponent({
   name: 'SopFilterForm',
@@ -7,6 +8,7 @@ export default defineComponent({
     ElForm
   },
   setup(props, { slots, attrs }) {
+    const { t } = useLocale();
     const isFilterShow = ref(true);
     const formRef = ref<InstanceType<typeof ElForm> | null>(null);
 
@@ -32,13 +34,13 @@ export default defineComponent({
         label-position="top"
       >
         <div class="sop-filter__toggle">
-          <strong>查询或筛选</strong>
+          <strong>{ t('sop.filterForm.selector') }</strong>
           <a
             href="#"
             onClick={withModifiers(() => {
               isFilterShow.value = !isFilterShow.value;
             }, ['prevent'])}
-          >{ isFilterShow.value ? '收起' : '展开' }</a>
+          >{ isFilterShow.value ? t('sop.common.packUp') : t('sop.common.flareOut') }</a>
         </div>
 
         {

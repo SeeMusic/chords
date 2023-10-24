@@ -1,7 +1,7 @@
 {
   "name": "@seemusic/ui-components",
   "private": false,
-  "version": "0.0.7-rc.2",
+  "version": "0.0.8-rc.1",
   "description": "A Vue 3 UI Library. Uses Composable.",
   "keywords": [
     "ui-components",
@@ -39,6 +39,8 @@
       "import": "./lib/framework.mjs",
       "require": "./dist/ui-components.js"
     },
+    "./locales": "./lib/locales/index.mjs",
+    "./locales/*": "./lib/locales/lang/*/*.mjs",
     "./components": "./lib/components/index.mjs",
     "./components/*": "./lib/components/*/*.mjs",
     "./framework": "./lib/framework.mjs",

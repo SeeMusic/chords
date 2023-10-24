@@ -1,11 +1,9 @@
 import { defineComponent, withModifiers, useSlots, getCurrentInstance } from 'vue';
-import { RouterLink, Router } from 'vue-router';
+import { useLocale } from '../../composables/useLocale';
+import type { RouteLocationRaw, Router } from 'vue-router';
 
 export default defineComponent({
   name: 'SopPageHeader',
-  components: {
-    RouterLink
-  },
   props: {
     title: {
       type: String,
@@ -13,15 +11,23 @@ export default defineComponent({
     },
     back: {
       type: [Object, Number, String, Function],
-      default: 0
     }
   },
   setup(props, { slots }) {
     const instance = getCurrentInstance();
+    const { t } = useLocale();
 
     const $slots = useSlots();
     const $router = instance?.proxy?.$router as Router;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const validatorDataType = (val: any) => Object.prototype.toString.call(val).slice(8, -1);
+
+    function backHtml() {
+      return <>
+        <i class="sop-icon sop-icon--arrow-down" />
+        { t('sop.common.back') }
+      </>;
+    }
 
     function routeJumpWay() {
       switch(validatorDataType(props.back)) {
@@ -32,26 +38,34 @@ export default defineComponent({
                 $router.go(props.back as number);
               }, ['prevent'])}
             >
-              <i class="sop-icon sop-icon--arrow-down" />返回
+              {backHtml()}
             </a>;
         case 'String':
-          return <RouterLink to={{ path: props.back as string }}>
-            <i class="sop-icon sop-icon--arrow-down" />返回
-          </RouterLink>;
+          return <a
+              href="#"
+              onClick={withModifiers(() => {
+                $router.push({ path: props.back as string });
+              }, ['prevent'])}
+            >
+              {backHtml()}
+            </a>;
         case 'Object':
-          return <RouterLink to={props.back as Record<string, string>}>
-            <i class="sop-icon sop-icon--arrow-down" />返回
-          </RouterLink>;
+          return <a
+              href="#"
+              onClick={withModifiers(() => {
+                $router.push(props.back as RouteLocationRaw);
+              }, ['prevent'])}
+            >
+              {backHtml()}
+            </a>;
         case 'Function':
           return <a
             href="#"
-            onClick={(e) => {
+            onClick={withModifiers(() => {
               (props.back as () => void)();
-              e.stopPropagation();
-              e.preventDefault();
-            }}
+            }, ['prevent'])}
           >
-            <i class="sop-icon sop-icon--arrow-down" />返回
+            {backHtml()}
           </a>;
       }
     }

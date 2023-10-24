@@ -1,5 +1,6 @@
 import { defineComponent, ref, computed, Slots } from 'vue';
 import { ElDialog, ElButton } from 'element-plus';
+import { useLocale } from '../../composables/useLocale';
 
 export interface OnOKEvent {
   close: () => void
@@ -40,16 +41,18 @@ export default defineComponent({
       default: true
     },
     confirmBtnText: {
-      type: String,
-      default: '确认'
+      type: String
     },
     cancelBtnText: {
-      type: String,
-      default: '取消'
+      type: String
     }
   },
   emits: ['update:visible', 'on-ok', 'on-close'],
   setup(props, { attrs, emit, slots }) {
+    const { t } = useLocale();
+
+    const confirmBtnText = ref(props.confirmBtnText || t('sop.common.confirm'));
+    const cancelBtnText = ref(props.cancelBtnText || t('sop.common.cancel'));
     const loading = ref(false);
     const isShowDefaultFooter = computed(() => (props.isShowCancelBtn || props.isShowConfirmBtn) && props.isShowDefaultFooter);
 
@@ -79,7 +82,7 @@ export default defineComponent({
             <>
               {
                 props.isShowCancelBtn &&
-                <ElButton onClick={beforeClose}>{props.cancelBtnText}</ElButton>
+                <ElButton onClick={beforeClose}>{cancelBtnText.value}</ElButton>
               }
               {
                 props.isShowConfirmBtn &&
@@ -90,7 +93,7 @@ export default defineComponent({
                     emit('on-ok', okEvents);
                   }}
                 >
-                  {props.confirmBtnText}
+                  {confirmBtnText.value}
                 </ElButton>
               }
             </> :

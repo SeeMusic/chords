@@ -1,25 +1,26 @@
 {
   "compilerOptions": {
     "disableSizeLimit": true,
+    "outDir": "./lib",
+    "types": [
+      "node",
+      "vue-router"
+    ],
+    "moduleResolution": "node",
     "composite": true,
     "baseUrl": ".",
-    "outDir": "./lib",
     "paths": {
       "@/*": [
         "./src/*"
       ]
     },
-    "types": [
-      "node",
-      "vue-router"
-    ],
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "vite.*.config.ts"
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./vite.*.config.ts"
   ],
   "references": [
     {

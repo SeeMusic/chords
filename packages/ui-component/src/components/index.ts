@@ -13,3 +13,4 @@ export * from './SopDialog';
 export * from './SopDrawer';
 export * from './SopPagination';
 export * from './SopBasicTable';
+export * from './SopConfigProvider';

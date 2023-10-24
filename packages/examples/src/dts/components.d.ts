@@ -9,6 +9,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     EditTableCell: typeof import('./../components/SopBasicTable/EditTableCell.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElTable: typeof import('element-plus/es')['ElTable']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SopBasicTable: typeof import('@seemusic/ui-components/components')['SopBasicTable']
@@ -20,6 +24,7 @@ declare module 'vue' {
     SopLayoutMain: typeof import('@seemusic/ui-components/components')['SopLayoutMain']
     SopPa: typeof import('@seemusic/ui-components/components')['SopPa']
     SopPageHeader: typeof import('@seemusic/ui-components/components')['SopPageHeader']
+    SopPagination: typeof import('@seemusic/ui-components/components')['SopPagination']
     SopStatus: typeof import('@seemusic/ui-components/components')['SopStatus']
     SopTheHeader: typeof import('@seemusic/ui-components/components')['SopTheHeader']
     SopThes: typeof import('@seemusic/ui-components/components')['SopThes']

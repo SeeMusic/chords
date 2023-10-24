@@ -90,6 +90,12 @@ function renderSidebar() {
       text: 'Components',
       items: [
         {
+          text: '配置组件',
+          items: [
+            { text: '全局配置 ConfigProvider', link: '/components/ConfigProvider' },
+          ]
+        },
+        {
           text: 'State 状态',
           items: [
             { text: '状态 Status', link: '/components/Status' },
