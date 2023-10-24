@@ -59,28 +59,43 @@ const wrapper = _mount(
             editComponentProps: {
               size: 'small'
             }
-          }
+          },
+          { prop: 'nickName', label: 'nickName' },
+          { prop: 'email', label: 'email', placeholder: '*' },
+          { prop: 'desc', label: 'desc', formatter: () => '^' },
         ],
         tableData: [
           {
             date: '2016-05-03',
             name: 'Tom',
             address: 'No. 189, Grove St, Los Angeles',
+            nickName: '',
+            email: '',
+            desc: ''
           },
           {
             date: '2016-05-02',
             name: 'Tom',
             address: 'No. 189, Grove St, Los Angeles',
+            nickName: '11',
+            email: '22',
+            desc: 'e4'
           },
           {
             date: '2016-05-04',
             name: 'Tom',
             address: 'No. 189, Grove St, Los Angeles',
+            nickName: '22',
+            email: '22',
+            desc: 'ss'
           },
           {
             date: '2016-05-01',
             name: 'Tom',
             address: 'No. 189, Grove St, Los Angeles',
+            nickName: '33',
+            email: '22',
+            desc: 'ff'
           },
         ],
         editedData: {}
@@ -92,7 +107,7 @@ const wrapper = _mount(
 describe('basic table', () => {
   it('header', () => {
     const headers = wrapper.findAll('thead tr th .cell').map(i => i.text());
-    expect(headers).toEqual(['日期', '名称', '地址']);
+    expect(headers).toEqual(['日期', '名称', '地址', 'nickName', 'email', 'desc']);
   });
 
   it('row length', () => {
@@ -133,5 +148,23 @@ describe('edit column', () => {
       const editCell = cell.find('.el-input input').element.tagName;
       expect(editCell).toBe('INPUT');
     });
+  });
+});
+
+describe('formatter column', () => {
+  it('non-existent cell value', () => {
+    const cell = wrapper.find('.el-table__row:first-child :nth-child(4) .cell');
+    expect(cell.text()).toBe('-');
+  });
+
+  it('placeholder cell value', () => {
+    const cell = wrapper.find('.el-table__row:first-child :nth-child(5) .cell');
+    expect(cell.text()).toBe('*');
+  });
+
+  it('formatter cell value', () => {
+    const columnCell = wrapper.findAll('.el-table__row :nth-child(6) .cell');
+    const textList = columnCell.map(i => i.text());
+    expect(textList).toEqual(['^', '^', '^', '^']);
   });
 });

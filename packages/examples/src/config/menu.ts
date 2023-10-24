@@ -36,5 +36,10 @@ export const navList: SidebarListItem[] =
       title: 'BasicTable',
       icon: h(Icon, { icon: 'material-symbols:table-view-sharp' }),
       path: '/example-table'
+    },
+    {
+      title: 'ConfigProvider',
+      icon: h(Icon, { icon: 'material-symbols:table-view-sharp' }),
+      path: '/example-config-provider'
     }
   ];

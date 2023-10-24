@@ -1,5 +1,6 @@
 import { defineComponent, toRefs } from 'vue';
 import { ElPagination } from 'element-plus';
+import { useLocale } from '../../composables/useLocale';
 
 export default defineComponent({
   name: 'SopPagination',
@@ -20,6 +21,7 @@ export default defineComponent({
   },
   emits: ['current-change', 'size-change', 'update:current-page', 'update:page-size'],
   setup(props, { attrs, emit, slots }) {
+    const { t } = useLocale();
     const { currentPage, pageSize, total } = toRefs(props);
 
     function renderSlots () {
@@ -29,7 +31,7 @@ export default defineComponent({
         };
       }
       return {
-        default: () => <span class="el-pagination__text"> 共 {total.value} 条，仅显示前 500 页结果</span>
+        default: () => <span class="el-pagination__text">{ t('sop.pagination.total', { total: total.value })}</span>
       };
     }
 

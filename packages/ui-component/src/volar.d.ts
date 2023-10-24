@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     SopBasicInfo: typeof import('./components/SopBasicInfo')['SopBasicInfo']
     SopBasicTable: typeof import('./components/SopBasicTable')['SopBasicTable']
     SopCard: typeof import('./components/SopCard')['SopCard']
+    SopConfigProvider: typeof import('./components/SopConfigProvider')['SopConfigProvider']
     SopCover: typeof import('./components/SopCover')['SopCover']
     SopDataTable: typeof import('./components/SopDataTable')['SopDataTable']
     SopDataTableItem: typeof import('./components/SopDataTableItem')['SopDataTableItem']

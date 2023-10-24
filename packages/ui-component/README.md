@@ -110,6 +110,20 @@ export default defineConfig({
 }
 ```
 
+## 国际化
+
+```vue
+<template>
+  <SopConfigProvider :locale="zhCn" />
+</template>
+
+<script setup lang="ts">
+// 配置自动导入后，组件可以不用具名导入
+import { SopConfigProvider } from '@seemusic/ui-components/components';
+import { zhCn, zhTw, enUs } from '@seemusic/ui-components/locales';
+</script>
+```
+
 ## 高级
 
 如果你想使用 `SopStatus` 、 `SopFilterForm` 、 `SopDataTable`、`SopDataTableItem`、`SopCover`、`SopBasicInfo`、`SopCard`、`SopPageHeader` 之外的组件，需要做以下修改。

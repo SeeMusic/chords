@@ -1,4 +1,9 @@
 <template>
+  <SopPageHeader title="String" back="1" />
+  <SopPageHeader title="Number" :back="1" />
+  <SopPageHeader title="Object" :back="{}" />
+  <SopPageHeader title="Function" :back="() => {}" />
+
   <ElButton type="primary" @click="$router.push('/examples')">go to examples</ElButton>
   <ElButton type="primary" @click="$router.push('/example-table/child')">go to example table child</ElButton>
     <ElButton type="primary" @click="$router.push('/examples/child')">go to example child</ElButton>
@@ -36,7 +41,7 @@ import { ref, nextTick } from 'vue';
 import { ElMessage } from 'element-plus';
 import type { Recordable } from '@/shims';
 import { SopBasicTable } from '../components/SopBasicTable';
-import type { TableColumn, TableConfig } from '@seemusic/ui-components';
+import type { TableColumn, TableConfig } from '@seemusic/ui-components/shims';
 
 const tableRef = ref();
 const tableConfig: TableConfig = {

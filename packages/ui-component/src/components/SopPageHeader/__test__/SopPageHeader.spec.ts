@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import { SopPageHeader } from '../index';
 
 const wrapper = mount({
@@ -29,8 +29,20 @@ describe('SopPageHeader', () => {
     expect(title?.text()).toBe('opt slots');
   });
 
-  it('router back', () => {
-    const back = wrapper.find('.sop-page-path a').text();
-    expect(back).toBe('返回');
+  it('[string, number, function, object] back', () => {
+    const numberWrapper = shallowMount(SopPageHeader, { props: { title: 'Number', back: -1 } });
+    const stringWrapper = shallowMount(SopPageHeader, { props: { title: 'String', back: '/index' } });
+    const functionWrapper = shallowMount(SopPageHeader, { props: { title: 'Function', back: () => ({}) } });
+    const objectWrapper = shallowMount(SopPageHeader, { props: { title: 'Object', back: { name: 'Index' } } });
+
+    const numberBackText = numberWrapper.find('.sop-page-path a');
+    const stringBackText = stringWrapper.find('.sop-page-path a');
+    const functionBackText = functionWrapper.find('.sop-page-path a');
+    const objectBackText = objectWrapper.find('.sop-page-path a');
+
+    expect(numberBackText.text()).toBe('返回');
+    expect(stringBackText.text()).toBe('返回');
+    expect(functionBackText.text()).toBe('返回');
+    expect(objectBackText.text()).toBe('返回');
   });
 });

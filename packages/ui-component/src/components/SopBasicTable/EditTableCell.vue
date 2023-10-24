@@ -65,6 +65,7 @@ import {
   ElOption
 } from 'element-plus';
 import { Icon } from '@iconify/vue';
+import { useLocale } from '../../composables/useLocale';
 import type { TableColumn } from './SopBasicTable';
 import type { Recordable } from '../../shims';
 
@@ -79,6 +80,8 @@ const emits = defineEmits<{
   (e: 'edit-column-change', val: any): void
   (e: 'cancel-edit-row-state-change'): void
 }>();
+
+const { t } = useLocale();
 
 const componentMap = {
   'ElInput': ElInput,
@@ -127,9 +130,8 @@ watch(
  */
 function existCellEdit(flag: boolean, isNeedScheduler = true) {
   if (flag) {
-    console.log('edit-value: ', bindVal.value);
     if ((ComponentRule.value || ComponentRule.value === undefined) && !bindVal.value) {
-      ElMessage.error('不允许为空');
+      ElMessage.error(t('sop.basicTable.emptyRuleValidatorText'));
       return;
     }
 
