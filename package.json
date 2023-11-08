@@ -1,6 +1,6 @@
 {
   "name": "ui-seemusic",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "scripts": {
     "commit": "git-cz",
     "prepare": "husky install",
