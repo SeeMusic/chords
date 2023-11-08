@@ -35,7 +35,7 @@
     </SopCard>
 
     <SopPageHeader
-      title="PageHeader"
+      :title="['设置', '列表', '编辑']"
       :back="{}"
     ></SopPageHeader>
 
