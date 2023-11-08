@@ -33,7 +33,19 @@
   }
 
   .sop-page-title {
-    font-weight: 600;
+    // font-weight: 600;
+    .separate {
+      margin: 0 8px;
+    }
+    .sop-page-title-item:not(:last-child) {
+      color: var(--seemusic-text-description)
+    }
+    .sop-page-title-item:nth-last-child(2) {
+      .separate {
+        color: #666;
+      }
+    }
+
   }
 
   .sop-page-opt {
