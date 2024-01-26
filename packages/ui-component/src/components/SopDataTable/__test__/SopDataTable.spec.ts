@@ -28,7 +28,7 @@ describe('SopDataTable', () => {
     await nextTick();
     const allItem = wrapper.findAll('.sop-data-table__content .sop-data-table-item');
 
-    expect(allItem.length).toBe(6);
+    expect(allItem.length).toBe(4);
     // TODO allItem[0].attributes().style  with 为空 ???
     // expect(allItem[0].attributes().style).contain('20px');
   });

@@ -5,7 +5,6 @@ import '@vue/runtime-core';
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     // GlobalComponents for Volar
-    SaasHeader: typeof import('./components/SaasHeader')['SaasHeader']
     SopBasicInfo: typeof import('./components/SopBasicInfo')['SopBasicInfo']
     SopBasicTable: typeof import('./components/SopBasicTable')['SopBasicTable']
     SopCard: typeof import('./components/SopCard')['SopCard']

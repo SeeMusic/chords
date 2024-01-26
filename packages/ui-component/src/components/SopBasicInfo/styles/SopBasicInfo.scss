@@ -13,8 +13,19 @@
 }
 
 .sop-basic-info__title {
+  padding: 6px 0;
   line-height: 36px;
   font-size: 24px;
+  > :last-child {
+    margin-left: 8px;
+    border-radius: 3px;
+    overflow: hidden;
+    &.el-tag {
+      line-height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
 
 .sop-basic-info__opt {

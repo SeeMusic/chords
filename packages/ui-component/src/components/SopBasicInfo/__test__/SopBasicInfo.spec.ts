@@ -17,6 +17,9 @@ const _mount = (template: string, options = {}) =>
 
 const wrapper = _mount(
   `<SopBasicInfo title="xxx合同">
+    <template #titleSuffix>
+      <span>titleSuffix</span>
+    </template>
     <template #default>
       <span>
         <ElTag type="danger" size="small">
@@ -39,6 +42,10 @@ const wrapper = _mount(
 describe('SopBasicInfo', () => {
   it('should be render card title', () => {
     const title = wrapper.find('.sop-basic-info__title');
-    expect(title?.text()).toEqual('xxx合同');
+    expect(title?.text()).toContain('xxx合同');
+  });
+  it('should be render title suffix', () => {
+    const suffix = wrapper.find('.sop-basic-info__title > span');
+    expect(suffix?.text()).toEqual('titleSuffix');
   });
 });

@@ -28,6 +28,7 @@ const getLocaleContent = (locale: ComputedRef<Language>) => {
 
 export const useLocale = () => {
   const locale = inject(localeContextKey) || zhCN;
+
   const localeRef = isRef(locale) ? locale : ref(locale);
   const lang = computed(() => unref(locale).name);
 
