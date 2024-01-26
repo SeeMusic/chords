@@ -54,6 +54,40 @@
 ```
 :::
 
+## title suffix Slots
+
+:::demo 
+
+```vue
+<template>
+  <SopBasicInfo title="标题">
+    <template #titleSuffix>
+      <ElTag type="error">Error</ElTag>
+    </template>
+    <template #default>
+      <span>
+        <ElTag type="danger" size="small">
+          存在手动终止记录
+        </ElTag>
+      </span>
+      <span>
+        <SopStatus type="danger" text="未过审" />
+      </span>
+      <span>
+        创建时间：2022-10-16 00:00:00
+      </span>
+      <span>
+        更新时间：2022-10-16 00:00:00
+      </span>
+    </template>
+    <template #opt>
+      <ElButton type="primary" size="small">操作</ElButton>
+    </template>
+  </SopBasicInfo>
+</template>
+```
+:::
+
 ## opt Slots
 
 :::demo 
@@ -84,3 +118,4 @@
 | `-`       | 自定义默认内容  |  | 
 | `cover`       | 详情头图  | 一般配合 `SopCover` 使用 | 
 | `opt`       | 右侧自定义操作内容区域  |  | 
+| `titleSuffix`       | `title` 后面的标识一般用来显示状态字段  |  | 

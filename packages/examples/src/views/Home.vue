@@ -16,7 +16,9 @@
     </template>
 
     <template #main>
-      <RouterView />
+      <SopConfigProvider :locale="zhCn">
+        <RouterView />
+      </SopConfigProvider>
     </template>
   </SopLayoutMain>
 
@@ -26,6 +28,7 @@
 import { ElMessage } from 'element-plus';
 import { ref, h, watch, computed } from 'vue';
 import { Icon } from '@iconify/vue';
+import { zhCn } from '@seemusic/ui-components/locales';
 // import { ElMessage } from 'element-plus';
 
 import { navList } from '@/config';

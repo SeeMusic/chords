@@ -9,6 +9,9 @@ import type { PropType, VNode } from 'vue';
 import type { Column, PaginationProps } from 'element-plus';
 import type { Recordable } from '../../shims';
 
+export type Mutable<Type> = {
+  -readonly [Key in keyof Type]: Type[Key];
+};
 
 export type ComponentsType = 'ElInput' |
   'ElInputNumber' |
@@ -50,7 +53,7 @@ export interface TableColumn extends Omit<Column, 'width'> {
 export interface TableConfig {
   // 是否开启分页
   isPagination?: boolean
-  pagination: Partial<PaginationProps>
+  pagination: Partial<Mutable<PaginationProps>>
 }
 
 export default defineComponent({

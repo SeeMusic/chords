@@ -27,6 +27,7 @@ export default defineComponent({
         }
         <p class="sop-basic-info__title">
           {props.title}
+          {slots.titleSuffix?.()}
         </p>
 
         <div class="sop-meta-info">

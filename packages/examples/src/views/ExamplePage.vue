@@ -54,7 +54,7 @@
       </SopBasicTable>
     </SopCard>
 
-    <SopCard>
+    <!-- <SopCard>
       <SopDataTable :cols="4">
         <template v-for="item in 16" :key="item">
           <SopDataTableItem v-if="item % 2 === 0" :label="`名称-${item}`">内容{{item}}</SopDataTableItem>
@@ -74,18 +74,125 @@
           </SopDataTableItem>
         </template>
       </SopDataTable>
-    </SopCard>
+    </SopCard> -->
   </div>
+
+  <SopBasicInfo
+    title="Title"
+  >
+    <template #titleSuffix>
+      <ElTag type="danger">警告</ElTag>
+    </template>
+
+    <template #cover>
+      <SopCover type="contract" />
+    </template>
+
+    <span>
+      <ElTag
+        type="danger"
+        size="small"
+      >
+        警告状态
+      </ElTag>
+    </span>
+
+    <span>
+      创建时间：2024-10-10
+    </span>
+    <span>
+      更新时间：2024-10-10
+    </span>
+
+    <template #opt>
+      xxx
+    </template>
+  </SopBasicInfo>
+
+
+  <SopCard>
+    <SopDataTable :cols="4">
+        <SopDataTableItem
+          label="合同 ID"
+        >
+          <a
+            class="highlight"
+            _target="blank"
+          >
+            111
+          </a>
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="合同编号"
+        >
+          bianhao
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="来源"
+        >
+          laiyuan
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="相关 CP"
+        >
+          <a
+            class="highlight"
+            _target="blank"
+          >
+            name
+          </a>
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="是否补充合同？"
+          v-if="true"
+        >
+          <!-- <SopStatus
+            v-bind="{
+                type: 'success',
+                text: `是，原始合同 ID：${contractInfo.originalAgreementId}`
+            "
+          /> -->
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="自动匹配"
+        >
+          <SopStatus
+            :type="'info'"
+            :text="'否'"
+          />
+        </SopDataTableItem>
+
+        <SopDataTableItem
+          label="新增专辑授权书自动关联"
+          v-if="SopDataTableItemVisible"
+        >
+          <SopStatus
+            :type="'success'"
+            :text="'是'"
+          />
+        </SopDataTableItem>
+      </SopDataTable>
+  </SopCard>
 </template>
 
 <script setup lang="ts">
-import type { TableColumn, TableConfig } from '@seemusic/ui-components';
 import { ref } from 'vue';
+import type { TableColumn, TableConfig } from '@seemusic/ui-components/shims';
 
 const dialogVisible_1 = ref(false);
 const dialogVisible_2 = ref(false);
 const drawerVisible_1 = ref(false);
 const drawerVisible_2 = ref(false);
+const SopDataTableItemVisible = ref(false);
+
+setTimeout(() => {
+  SopDataTableItemVisible.value = true;
+}, 3000);
 
 const tableConfig = ref<TableConfig>({
   isPagination: true,
