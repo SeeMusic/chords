@@ -85,7 +85,7 @@
     </template>
 
     <template #cover>
-      <SopCover type="contract" />
+      <SopCover type="album" src="https://kanjian-content.oss-cn-hongkong.aliyuncs.com/han/images/png/2024-04-19/wallhaven-8586my-1712830307843-1713499479944.png?Expires=1713514845&OSSAccessKeyId=LTAI4G1bA6Jw6CsNyYaP6Rkk&Signature=ZB3P6pSV3GBVBRakUu2xSRvtTR0%3D" />
     </template>
 
     <span>

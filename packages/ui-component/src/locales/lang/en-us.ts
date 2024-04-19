@@ -4,8 +4,8 @@ export default {
     common: {
       cancel: 'cancel',
       confirm: 'confirm',
-      packUp: 'Expanding',
-      flareOut: 'Collapsing',
+      packUp: 'collapse',
+      flareOut: 'expand',
       back: 'back'
     },
     basicTable: {
