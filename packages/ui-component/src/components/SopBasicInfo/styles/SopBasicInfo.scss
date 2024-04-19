@@ -13,14 +13,20 @@
 }
 
 .sop-basic-info__title {
-  padding: 6px 0;
+  // padding: 6px 0;
   line-height: 36px;
   font-size: 24px;
-  > :last-child {
+  .title-content {
+    display: inline-block;
+    max-width: 50%;
+  }
+  .sop-basic-info__title-suffix {
+    display: inline-block;
+    // 100px 预留 options 的宽度
+    max-width: calc(50% - 8px - 100px);
     margin-left: 8px;
     border-radius: 3px;
-    overflow: hidden;
-    &.el-tag {
+    .el-tag {
       line-height: 24px;
       display: inline-block;
       vertical-align: middle;

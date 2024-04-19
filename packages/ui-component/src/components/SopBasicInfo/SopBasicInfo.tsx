@@ -26,8 +26,11 @@ export default defineComponent({
             </div>
         }
         <p class="sop-basic-info__title">
-          {props.title}
-          {slots.titleSuffix?.()}
+          <div class="title-content overflow-ellipsis">{props.title}</div>
+          {
+            $slots.titleSuffix &&
+              <div class="sop-basic-info__title-suffix overflow-ellipsis">{slots.titleSuffix?.()}</div>
+          }
         </p>
 
         <div class="sop-meta-info">

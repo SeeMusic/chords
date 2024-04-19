@@ -1,4 +1,11 @@
-import { defineComponent, computed, ref, onMounted, onBeforeUnmount, type PropType } from 'vue';
+import {
+  defineComponent,
+  computed,
+  ref,
+  onMounted,
+  onBeforeUnmount,
+  type PropType
+} from 'vue';
 
 export type CoverTypeEnum = 'album' | 'track' | 'cp' | 'customer' | 'contract' | 'dsp' | 'playlist-project' | 'playlist'
 
@@ -83,10 +90,12 @@ export default defineComponent({
 
     function isCoverShow() {
       if (props.src !== '') {
-        return <img
-          src={props.src ? props.src : ''}
-          width={props.width ? props.width : 0}
-          height={props.height ? props.height : 0}
+        return <div
+          style={{
+            ...coverSize.value,
+            background: `url(${props.src}) no-repeat center center`,
+            backgroundSize: 'cover',
+          }}
         />;
       } else if (props.placeholder !== '') {
         return <span>
