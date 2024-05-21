@@ -9,9 +9,12 @@
 ```vue
 <template>
   <ElSelect v-model="lang" @change="languageChange">
-    <ElOption label="中文" value="zh-CN" />
-    <ElOption label="英文" value="en-US" />
-    <ElOption label="繁体" value="zh-TW" />
+    <ElOption 
+      v-for="item in languageOptions" 
+      :key="item.label" 
+      :label="item.label" 
+      :value="item.value" 
+    />
   </ElSelect>
   <SopConfigProvider :locale="locale" >
     <ElConfigProvider :locale="elementPlusLocale">
@@ -25,31 +28,54 @@
 import { ref, computed, watch } from 'vue';
 import { SopConfigProvider } from '@seemusic/ui-components/components';
 // ui-components 语言包
-import { zhCn, zhTw, enUs } from '@seemusic/ui-components/locales';
+import { zhCn, zhTw, enUs, jaJp } from '@seemusic/ui-components/locales';
 // element-plus 语言包
 import zhCN from 'element-plus/es/locale/lang/zh-cn';
 import enUS from 'element-plus/es/locale/lang/en';
 import zhTW from 'element-plus/es/locale/lang/zh-tw';
+import ja from 'element-plus/es/locale/lang/ja'
+
+enum LANGUAGE {
+  CN = 'zh-CN',
+  EN = 'en-US',
+  TW = 'zh-TW',
+  JA = 'ja-JP'
+}
+
+const languageOptions = [
+  { label: '中文', value: LANGUAGE.CN },
+  { label: '英文', value: LANGUAGE.EN },
+  { label: '繁体', value: LANGUAGE.TW },
+  { label: '日文', value: LANGUAGE.JA },
+]
 
 const lang = ref(getDefaultLanguage());
-const locale = computed(() =>
-  lang.value === 'zh-CN'
-    ? zhCn
-    : lang.value === 'zh-TW' || lang.value === 'zh-HK'
-      ? zhTw
-      : lang.value === 'en-US'
-        ? enUs
-        : undefined
-  );
 
-const elementPlusLocale = computed(() =>getDefaultLanguage() === 'zh-CN'
-  ? zhCN
-  : getDefaultLanguage() === 'en-US'
-    ? enUS
-    : getDefaultLanguage() === 'zh-TW' || getDefaultLanguage() === 'zh-HK'
-      ? zhTW
-      : zhCN
-);
+const locale = computed(() => {
+  if (lang.value === LANGUAGE.CN) {
+    return zhCn
+  } else if (lang.value === 'zh-TW' || lang.value === 'zh-HK') {
+    return zhTw
+  } else if (lang.value === 'en-US') {
+    return enUs
+  } else if (lang.value === 'ja-JP') {
+    return jaJp
+  }
+  return zhCn
+});
+
+const elementPlusLocale = computed(() => {
+  if (lang.value === LANGUAGE.CN) {
+    return zhCN
+  } else if (lang.value === 'zh-TW' || lang.value === 'zh-HK') {
+    return zhTW
+  } else if (lang.value === 'en-US') {
+    return enUS
+  } else if (lang.value === 'ja-JP') {
+    return ja
+  }
+  return zhCN
+})
 
 // 获取默认语言，存储到 localStorage 中
 function getDefaultLanguage() {
@@ -65,7 +91,10 @@ function getDefaultLanguage() {
     locale = 'en-US';
   } else if (lang === 'zh-TW' || lang === 'zh-HK') {
     locale = 'zh-TW';
+  } else if (lang.includes('ja')) {
+    locale = 'ja-JP'
   }
+
   window.localStorage.setItem('lang', locale || 'zh-CN');
   return locale || 'zh-CN';
 };
