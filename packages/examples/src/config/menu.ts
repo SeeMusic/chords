@@ -41,5 +41,10 @@ export const navList: SidebarListItem[] =
       title: 'ConfigProvider',
       icon: h(Icon, { icon: 'material-symbols:table-view-sharp' }),
       path: '/example-config-provider'
+    },
+    {
+      title: 'SopInput',
+      icon: h(Icon, { icon: 'material-symbols:table-view-sharp' }),
+      path: '/example-input'
     }
   ];

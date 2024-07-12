@@ -1,6 +1,6 @@
 import { readdirSync, writeFileSync, access, constants, rmSync } from 'node:fs';
 
-const formatComponentType = (dir: string[]) => {
+const formatComponentType = (dir: string[], replaceComponent: Record<string, string>) => {
   return `
 // For this project development
 import '@vue/runtime-core';
@@ -8,7 +8,13 @@ import '@vue/runtime-core';
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     // GlobalComponents for Volar
-    ${dir.map(i => `${i}: typeof import('./components/${i}')['${i}']`).join('\n    ')}
+    ${dir.map(i => {
+      const compName = replaceComponent[i];
+      if (compName) {
+        return `${i}: typeof import('element-plus/es')['${compName}']`;
+      }
+      return `${i}: typeof import('./components/${i}')['${i}']`;
+    }).join('\n    ')}
   }
 }
 
@@ -28,7 +34,7 @@ export const genComponentsType = () => {
       // const str = formatComponentType(dir);
       // appendFileSync(fileName, str, 'utf-8');
     }
-    const str = formatComponentType(dir);
+    const str = formatComponentType(dir, { SopInput: 'ElInput' });
     writeFileSync(fileName, str, 'utf-8');
   });
 };
