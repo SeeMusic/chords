@@ -21,8 +21,8 @@ describe('SopCover', () => {
     };
     const wrapper = shallowMount(SopCover, { props });
 
-    const coverAttribute = wrapper.find('.sop-cover img').attributes();
-    expect(coverAttribute.toString()).toEqual(props.toString());
+    const coverStyle = wrapper.find('.sop-cover :last-child').attributes().style;
+    expect(coverStyle).contain(props.src);
   });
 
   it('edit cover', () => {

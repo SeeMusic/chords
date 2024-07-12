@@ -44,8 +44,9 @@ describe('SopBasicInfo', () => {
     const title = wrapper.find('.sop-basic-info__title');
     expect(title?.text()).toContain('xxx合同');
   });
+
   it('should be render title suffix', () => {
-    const suffix = wrapper.find('.sop-basic-info__title > span');
-    expect(suffix?.text()).toEqual('titleSuffix');
+    const suffix = wrapper.find('.sop-basic-info__title');
+    expect(suffix?.text()).toEqual('xxx合同titleSuffix');
   });
 });

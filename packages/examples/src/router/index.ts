@@ -4,6 +4,7 @@ import HomeView from '../views/Home.vue';
 import ExamplePage from '../views/ExamplePage.vue';
 import ExampleTable from '@/views/ExampleTable.vue';
 import ExampleConfigProvider from '@/views/ExampleConfigProvider.vue'
+import ExampleInput from '@/views/ExampleInput.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
           path: 'example-config-provider',
           name: 'ExampleConfigProvider',
           component: ExampleConfigProvider,
+        },
+        {
+          path: 'example-input',
+          name: 'ExampleInput',
+          component: ExampleInput,
         },
       ]
     },

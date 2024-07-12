@@ -1,0 +1,58 @@
+@use '../../../styles/base.scss';
+
+.el-input.sop-input .el-input__wrapper {
+  position: relative;
+
+  .el-input__placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: var(--el-text-color-placeholder);
+  }
+
+  .el-input__inner {
+    &--scroll::placeholder {
+      opacity: 0;
+    }
+  }
+
+  .is-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+
+    /* 鼠标经过停止动画 */
+    &:hover {
+      span {
+        animation-play-state: paused;
+      }
+    }
+
+    span {
+      display: inline-block;
+      /* 调整动画时长和效果 */
+      animation: marquee-start 20s linear, marquee-end 20s linear infinite 20s;
+    }
+  }
+}
+
+@keyframes marquee-start {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-end {
+  0% {
+    padding-left: 100%;
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}

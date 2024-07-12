@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ComponentPublicInstance, FunctionalComponent } from 'vue';
 import type { VNodeChild } from 'vue';
+import type { ElInput } from 'element-plus';
 
 export type Recordable = Record<string, any>
 
@@ -20,6 +21,10 @@ declare module 'vue' {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // export type JSXComponent<Props = any> = { new (): ComponentPublicInstance<Props> } | FunctionalComponent<Props>
+
+  // interface GlobalComponents {
+  //   SopInput: typeof ElInput
+  // }
 }
 
 declare module '@vue/runtime-dom' {
@@ -39,3 +44,4 @@ declare module '@vue/runtime-dom' {
 // export type { CoverTypeEnum } from './components/SopCover/SopCover';
 // export type { OnOKEvent, DialogOrDrawerHeaderSlots } from './components/SopDialog/SopDialog';
 export type { ComponentsType, TableColumn, TableConfig } from './components/SopBasicTable/src/SopBasicTable';
+

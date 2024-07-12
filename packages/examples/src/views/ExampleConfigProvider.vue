@@ -1,16 +1,13 @@
 <template>
-  <ElSelect v-model="lang" @change="languageChange">
+  <!-- <ElSelect v-model="lang" @change="languageChange">
     <ElOption label="中文" value="zh-CN" />
     <ElOption label="英文" value="en-US" />
     <ElOption label="繁体" value="zh-TW" />
-  </ElSelect>
+  </ElSelect> -->
 
-  <SopConfigProvider :locale="locale" >
     <ElConfigProvider :locale="elementPlusLocale">
-      <ElTable :data="[]" />
-      <SopPagination :current-page="10" :page-size="1" :total="100" />
+      <SopPageHeader title="xxx" :back="-1"  />
     </ElConfigProvider>
-  </SopConfigProvider>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +16,7 @@ import { zhCn, zhTw, enUs } from '@seemusic/ui-components/locales';
 import zhCN from 'element-plus/es/locale/lang/zh-cn';
 import enUS from 'element-plus/es/locale/lang/en';
 import zhTW from 'element-plus/es/locale/lang/zh-tw';
-import { SopConfigProvider } from '@seemusic/ui-components/components';
+import { SopPageHeader } from '@seemusic/ui-components/components';
 
 const getDefaultLanguage = () => {
   const localeStorageLang = window.localStorage.getItem('lang');

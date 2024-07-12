@@ -104,6 +104,7 @@ function renderSidebar() {
         {
           text: 'Form 表单',
           items: [
+            { text: '输入框 Input', link: '/components/Input' },
             { text: '容器 FilterForm', link: '/components/FilterForm' },
             { text: '布局 DataTable', link: '/components/DataTable' },
             { text: '布局 DataTableItem', link: '/components/DataTableItem' },
