@@ -28,18 +28,20 @@
 import { ref, computed, watch } from 'vue';
 import { SopConfigProvider } from '@seemusic/ui-components/components';
 // ui-components 语言包
-import { zhCn, zhTw, enUs, jaJp } from '@seemusic/ui-components/locales';
+import { zhCn, zhTw, enUs, jaJp, viVn } from '@seemusic/ui-components/locales';
 // element-plus 语言包
 import zhCN from 'element-plus/es/locale/lang/zh-cn';
 import enUS from 'element-plus/es/locale/lang/en';
 import zhTW from 'element-plus/es/locale/lang/zh-tw';
 import ja from 'element-plus/es/locale/lang/ja'
+import vi from 'element-plus/es/locale/lang/vi'
 
 enum LANGUAGE {
   CN = 'zh-CN',
   EN = 'en-US',
   TW = 'zh-TW',
-  JA = 'ja-JP'
+  JA = 'ja-JP',
+  VN = 'vi-VN'
 }
 
 const languageOptions = [
@@ -47,6 +49,7 @@ const languageOptions = [
   { label: '英文', value: LANGUAGE.EN },
   { label: '繁体', value: LANGUAGE.TW },
   { label: '日文', value: LANGUAGE.JA },
+  { label: '越南语', value: LANGUAGE.VN },
 ]
 
 const lang = ref(getDefaultLanguage());
@@ -60,6 +63,8 @@ const locale = computed(() => {
     return enUs
   } else if (lang.value === 'ja-JP') {
     return jaJp
+  } else if (lang.value === 'vi-VN') {
+    return viVn
   }
   return zhCn
 });
@@ -73,6 +78,8 @@ const elementPlusLocale = computed(() => {
     return enUS
   } else if (lang.value === 'ja-JP') {
     return ja
+  } else if (lang.value === 'vi-VN') {
+    return vi
   }
   return zhCN
 })
@@ -93,6 +100,8 @@ function getDefaultLanguage() {
     locale = 'zh-TW';
   } else if (lang.includes('ja')) {
     locale = 'ja-JP'
+  } else if (lang.includes('vi')) {
+    locale = 'vi-VN'
   }
 
   window.localStorage.setItem('lang', locale || 'zh-CN');
